@@ -1,0 +1,20 @@
+uuid: 4d82f446-1123-4dd8-b90a-b86ddd89c7c6
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - contact
+    - search
+    - system
+_core:
+  default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'search content'

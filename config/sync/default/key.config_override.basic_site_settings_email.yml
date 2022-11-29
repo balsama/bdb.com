@@ -1,0 +1,14 @@
+uuid: 0b96c7c9-d1c5-46e6-bc87-b8982b0adbad
+langcode: en
+status: true
+dependencies:
+  config:
+    - key.key.basic_site_settings_email
+    - system.site
+id: basic_site_settings_email
+label: 'Basic Site Settings Email'
+config_type: system.simple
+config_prefix: ''
+config_name: system.site
+config_item: mail
+key_id: basic_site_settings_email

@@ -1,0 +1,22 @@
+uuid: 6a3abc0d-8abc-404d-8d13-4c20a266fdaa
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - contact
+    - search
+    - system
+_core:
+  default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'

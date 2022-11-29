@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
+langcode: en
+uuid: bbf8b222-b45b-42be-a4b1-5620ae9b695b
+name: 'Big Day Boston'
+mail: null
+slogan: 'Downtown Boston Birding Competition'
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
