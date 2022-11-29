@@ -791,6 +791,19 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  * Keep this code block at the end of this file to take full effect.
  */
 
+if (getenv('DB_HOST')) {
+    $databases['default']['default'] = [
+        'database' => getenv('DB_DATABASE'),
+        'username' => getenv('DB_USERNAME'),
+        'password' => getenv('DB_PASSWORD'),
+        'host' => getenv('DB_HOST'),
+        'port' => getenv('DB_PORT'),
+        'driver' => 'mysql',
+        'prefix' => '',
+        'collation' => 'utf8mb4_general_ci',
+    ];
+}
+
 if (file_exists(__DIR__ . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';
 }
