@@ -9,7 +9,7 @@ databases:
 name: bdb-app
 region: nyc
 services:
-    environment_slug: php
+  - environment_slug: php
     envs:
       - key: DATABASE_URL
         scope: RUN_TIME
