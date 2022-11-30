@@ -45,5 +45,9 @@ services:
     source_dir: /
 jobs:
   - name: config-import
-    run_command: composer run-command post-deploy
+    run_command: composer post-deploy
     kind: POST_DEPLOY
+    github:
+      branch: post-deploy
+      deploy_on_push: true
+      repo: balsama/bdb.com
