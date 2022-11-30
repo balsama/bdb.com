@@ -32,7 +32,7 @@ services:
         scope: RUN_AND_BUILD_TIME
         value: defaultdb
     github:
-      branch: post-deploy
+      branch: main
       deploy_on_push: true
       repo: balsama/bdb.com
     http_port: 8080
@@ -48,6 +48,29 @@ jobs:
     run_command: composer post-deploy
     kind: POST_DEPLOY
     github:
-      branch: post-deploy
+      branch: main
       deploy_on_push: true
       repo: balsama/bdb.com
+    instance_count: 1
+    instance_size_slug: professional-xs
+    envs:
+      - key: DATABASE_URL
+        scope: RUN_TIME
+        value: ${db.DATABASE_URL}
+      - key: DB_USERNAME
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: EV[1:sO0zGdw9bq2bNhpHfngyKIwlwnyUvfMK:T48XOHhCtdJCfRawTBmVMIE4Am5Tunk=]
+      - key: DB_PASSWORD
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: EV[1:cuxM6npzsuRqJdUHAnrDh+jtHfAgVg88:vSf4AEGt5gP+9V2bwVVp0spVSPYRHF0YyMqAZCmtyger+pX+EL+0jA==]
+      - key: DB_HOST
+        scope: RUN_AND_BUILD_TIME
+        value: bdb-mysql-prod-do-user-2963441-0.b.db.ondigitalocean.com
+      - key: DB_PORT
+        scope: RUN_AND_BUILD_TIME
+        value: "25060"
+      - key: DB_DATABASE
+        scope: RUN_AND_BUILD_TIME
+        value: defaultdb
