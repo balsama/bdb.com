@@ -1,0 +1,45 @@
+databases:
+  - cluster_name: bdb-mysql-prod
+    db_name: defaultdb
+    db_user: doadmin
+    engine: MYSQL
+    name: bdb-mysql-prod
+    production: true
+    version: "8"
+name: bdb-app
+region: nyc
+services:
+    environment_slug: php
+    envs:
+      - key: DATABASE_URL
+        scope: RUN_TIME
+        value: ${db.DATABASE_URL}
+      - key: DB_USERNAME
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: EV[1:sO0zGdw9bq2bNhpHfngyKIwlwnyUvfMK:T48XOHhCtdJCfRawTBmVMIE4Am5Tunk=]
+      - key: DB_PASSWORD
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: EV[1:cuxM6npzsuRqJdUHAnrDh+jtHfAgVg88:vSf4AEGt5gP+9V2bwVVp0spVSPYRHF0YyMqAZCmtyger+pX+EL+0jA==]
+      - key: DB_HOST
+        scope: RUN_AND_BUILD_TIME
+        value: bdb-mysql-prod-do-user-2963441-0.b.db.ondigitalocean.com
+      - key: DB_PORT
+        scope: RUN_AND_BUILD_TIME
+        value: "25060"
+      - key: DB_DATABASE
+        scope: RUN_AND_BUILD_TIME
+        value: defaultdb
+    github:
+      branch: digo
+      deploy_on_push: true
+      repo: balsama/bdb.com
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: professional-xs
+    name: bdb-com
+    routes:
+      - path: /
+    run_command: heroku-php-apache2
+    source_dir: /
