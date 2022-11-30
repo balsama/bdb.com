@@ -41,4 +41,5 @@ services:
     name: bdb-com
     routes:
       - path: /
+    run_command: heroku-php-nginx web/
     source_dir: /
