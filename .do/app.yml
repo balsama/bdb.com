@@ -41,5 +41,5 @@ services:
     name: bdb-com
     routes:
       - path: /
-    run_command: heroku-php-apache2
+    run_command: heroku-php-apache2 web/
     source_dir: /
