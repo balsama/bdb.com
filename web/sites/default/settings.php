@@ -802,12 +802,18 @@ if (getenv('DB_HOST')) {
         'prefix' => '',
         'collation' => 'utf8mb4_general_ci',
     ];
+    $config["config_split.config_split.local"]["status"] = FALSE;
+    $config["config_split.config_split.prod"]["status"] = TRUE;
 }
 
 if (file_exists(__DIR__ . '/settings.local.php')) {
-  include __DIR__ . '/settings.local.php';
+    include __DIR__ . '/settings.local.php';
+    $config["config_split.config_split.local"]["status"] = TRUE;
+    $config["config_split.config_split.prod"]["status"] = FALSE;
 }
 if (file_exists(__DIR__ . '/settings.emptydb.php')) {
     include __DIR__ . '/settings.emptydb.php';
+    $config["config_split.config_split.local"]["status"] = TRUE;
+    $config["config_split.config_split.prod"]["status"] = FALSE;
 }
 $settings['config_sync_directory'] = __DIR__ . '/../../../config/sync/default';
