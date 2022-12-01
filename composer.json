@@ -94,7 +94,7 @@
         ],
         "post-deploy": [
             "./vendor/bin/drush cache:rebuild",
-            "./vendor/bin/drush config:import prod --yes",
+            "./vendor/bin/drush config:import --yes",
             "./vendor/bin/drush cache:rebuild",
             "./vendor/bin/drush updatedb --yes",
             "./vendor/bin/drush cache:rebuild",
