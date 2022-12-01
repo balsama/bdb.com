@@ -31,6 +31,13 @@ services:
       - key: DB_DATABASE
         scope: RUN_AND_BUILD_TIME
         value: defaultdb
+      - key: SMTP_PASSWORD
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: EV[1:7gNoCLtJXkbvLviL5oi3Vndpt/OmqZoo:xd4wbC2AkgfhaGVPPrM3OEbYFsPuzyK0l1nZs0kOL+0=]
+      - key: SITE_EMAIL
+        scope: RUN_AND_BUILD_TIME
+        value: info@bigdayboston.com
     github:
       branch: main
       deploy_on_push: true
@@ -74,3 +81,10 @@ jobs:
       - key: DB_DATABASE
         scope: RUN_AND_BUILD_TIME
         value: defaultdb
+      - key: SMTP_PASSWORD
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: EV[1:7gNoCLtJXkbvLviL5oi3Vndpt/OmqZoo:xd4wbC2AkgfhaGVPPrM3OEbYFsPuzyK0l1nZs0kOL+0=]
+      - key: SITE_EMAIL
+        scope: RUN_AND_BUILD_TIME
+        value: info@bigdayboston.com
