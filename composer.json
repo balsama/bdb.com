@@ -99,6 +99,7 @@
             "./vendor/bin/drush updatedb --yes",
             "./vendor/bin/drush cache:rebuild",
             "./vendor/bin/drush cron"
-        ]
+        ],
+        "set-secrets": "php ./scripts/create-keys-files.php"
     }
 }
