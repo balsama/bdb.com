@@ -7,7 +7,7 @@ class Helpers
     public static function getKeyValue(string $key_name): string
     {
         if (getenv($key_name)) {
-            return $key_name;
+            return getenv($key_name);
         }
         if (file_exists(__DIR__ . '/../keys/' . $key_name . '.keys')) {
             return file_get_contents(__DIR__ . '/../keys/' . $key_name . '.keys');
