@@ -1,0 +1,15 @@
+uuid: 03cae8a4-a161-4f20-ae86-915d8bec4801
+langcode: en
+status: false
+dependencies: {  }
+id: prod
+label: Prod
+description: ''
+weight: 0
+stackable: false
+storage: folder
+folder: ../config/sync/prod
+module: {  }
+theme: {  }
+complete_list: {  }
+partial_list: {  }
