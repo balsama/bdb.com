@@ -804,6 +804,9 @@ if (getenv('DB_HOST')) {
     ];
     $config["config_split.config_split.local"]["status"] = FALSE;
     $config["config_split.config_split.prod"]["status"] = TRUE;
+
+    $config['s3fs.settings']['use_customhost'] = TRUE;
+    $config['s3fs.settings']['hostname'] = 'https://nyc3.digitaloceanspaces.com/';
 }
 
 if (file_exists(__DIR__ . '/settings.local.php')) {

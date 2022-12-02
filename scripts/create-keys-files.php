@@ -12,6 +12,8 @@ $keys_dir = __DIR__ . '/../keys/';
 $keys = [
     'SITE_EMAIL',
     'SMTP_PASSWORD',
+    'AWS_ACCESS_KEY',
+    'AWS_SECRET_KEY'
 ];
 
 foreach ($keys as $key) {
