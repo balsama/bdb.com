@@ -38,6 +38,15 @@ services:
       - key: SITE_EMAIL
         scope: RUN_AND_BUILD_TIME
         value: info@bigdayboston.com
+      - key: AWS_ACCESS_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: EV[1:t37JCotMlp24lWdCFe4UHS+1VNBG5mbo:vQEc8jhDFs0er4bcfIt4JEU+/2ZHeVeHvubZEJzv1LIQbtlR]
+      - key: AWS_SECRET_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: EV[1:R4kENJmgqV4aFjqN+KXmKOfKRUv0phSp:CzzVKsZTEaiA/bumiERiiPNcrXs5sipI+R7caA9EfP7ceue4Xr9A7SixBiXCxGvxNRamI9qR++5Hr+M=]
+
     github:
       branch: main
       deploy_on_push: true
@@ -88,3 +97,12 @@ jobs:
       - key: SITE_EMAIL
         scope: RUN_AND_BUILD_TIME
         value: info@bigdayboston.com
+      - key: AWS_ACCESS_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: EV[1:t37JCotMlp24lWdCFe4UHS+1VNBG5mbo:vQEc8jhDFs0er4bcfIt4JEU+/2ZHeVeHvubZEJzv1LIQbtlR]
+      - key: AWS_SECRET_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: EV[1:R4kENJmgqV4aFjqN+KXmKOfKRUv0phSp:CzzVKsZTEaiA/bumiERiiPNcrXs5sipI+R7caA9EfP7ceue4Xr9A7SixBiXCxGvxNRamI9qR++5Hr+M=]
+
