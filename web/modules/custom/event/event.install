@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\event\Entity\Event;
+use Drupal\node\Entity\Node;
 
 /**
  * Create a default event.
@@ -16,4 +17,25 @@ function event_install()
         ]
     );
     $event->save();
+
+    $about_body =  <<<EOF
+    <p><strong>Big Day Boston</strong> is a friendly birding competition held in downtown Boston. This year's event will be held Saturday, May 6th 2023.</p>
+    <p>Participants compete to spot the most different species of birds in a single day without leaving the downtown neighborhoods of Beacon Hill, Charlestown, Downtown, and the North End - including the Common and the Public Garden. See Map:</p>
+    <p>Registrants will receive a checklist at registration at Copp's Hill. Checklists must be turned to the registration table by 4:15pm. Winner will be announced at 4:35!</p>
+    <p>Early registration coming soon.</p>
+EOF;
+    $about = Node::create(
+        [
+            'type' => 'page',
+            'title' => 'About',
+            'body' => [
+                'value' => $about_body,
+                'summary' => '',
+                'format' => 'full_html'
+            ],
+            'path' => [['alias' => '/about']],
+            'status' => 1,
+        ]
+    );
+    $about->save();
 }
