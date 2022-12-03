@@ -27,12 +27,14 @@ class RegistrationForm extends ContentEntityForm
 
         switch ($result) {
             case SAVED_NEW:
-                $this->messenger()->addStatus($this->t('New registration %label has been created.', $message_arguments));
+                $this->messenger()
+                    ->addStatus($this->t('New registration %label has been created.', $message_arguments));
                 $this->logger('registration')->notice('Created new registration %label', $logger_arguments);
                 break;
 
             case SAVED_UPDATED:
-                $this->messenger()->addStatus($this->t('The registration %label has been updated.', $message_arguments));
+                $this->messenger()
+                    ->addStatus($this->t('The registration %label has been updated.', $message_arguments));
                 $this->logger('registration')->notice('Updated registration %label.', $logger_arguments);
                 break;
         }
