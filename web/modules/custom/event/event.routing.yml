@@ -1,0 +1,15 @@
+entity.event.settings:
+  path: 'admin/structure/event'
+  defaults:
+    _form: '\Drupal\event\Form\EventSettingsForm'
+    _title: 'Event'
+  requirements:
+    _permission: 'administer event'
+entity.event.canonical:
+  path: 'event/{event}'
+  defaults:
+    _entity_view: 'event'
+    _title: 'View message'
+  requirements:
+    _permission: 'access content'
+
