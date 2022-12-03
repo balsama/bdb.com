@@ -1,0 +1,5 @@
+registration.add_form:
+  title: 'Add registration'
+  route_name: entity.registration.add_form
+  appears_on:
+    - entity.registration.collection

@@ -1,0 +1,13 @@
+<?php
+
+function registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
+    if (($form_id === 'registration_edit_form') || ($form_id === 'registration_add_form')) {
+        $form['user_reference']['#disabled'] = true;
+        $form['event_reference']['#disabled'] = true;
+        $form['fooo'] = [
+            '#markup' => '<p>You are registering for <strong>Big Day Boston 2023</strong>. Use the <em>Save</em> button below to confirm.</p>',
+            '#weight' => 10,
+        ];
+    }
+}

@@ -1,0 +1,7 @@
+name: Registration entity
+description: Creates a Registration entity that relates a User to an Event.
+package: Custom
+type: module
+dependencies:
+  - event:event
+core_version_requirement: ^10

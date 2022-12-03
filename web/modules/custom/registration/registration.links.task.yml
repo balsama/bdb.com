@@ -1,0 +1,9 @@
+entity.registration.settings:
+  title: 'Settings'
+  route_name: entity.registration.settings
+  base_route: entity.registration.settings
+entity.registration.collection:
+  title: 'Registrations'
+  route_name: entity.registration.collection
+  base_route: system.admin_content
+  weight: 10

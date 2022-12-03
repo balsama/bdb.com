@@ -30,9 +30,8 @@ function event_theme() {
  *   - attributes: HTML attributes for the containing element.
  */
 function template_preprocess_event(array &$variables) {
-    #$event = Drupal\event\Entity\Event::load(1);
-  $variables['view_mode'] = $variables['elements']['#view_mode'];
-  foreach (Element::children($variables['elements']) as $key) {
-    $variables['content'][$key] = $variables['elements'][$key];
-  }
+    $variables['view_mode'] = $variables['elements']['#view_mode'];
+    foreach (Element::children($variables['elements']) as $key) {
+        $variables['content'][$key] = $variables['elements'][$key];
+    }
 }
