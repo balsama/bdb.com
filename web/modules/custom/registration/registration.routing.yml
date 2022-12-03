@@ -1,0 +1,7 @@
+entity.registration.settings:
+  path: 'admin/structure/registration'
+  defaults:
+    _form: '\Drupal\registration\Form\RegistrationSettingsForm'
+    _title: 'Registration'
+  requirements:
+    _permission: 'administer registration'

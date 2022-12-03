@@ -1,0 +1,11 @@
+administer registration:
+  title: 'Administer registration settings'
+  restrict access: true
+delete registration:
+  title: Delete registration
+create registration:
+  title: Create registration
+view registration:
+  title: View registration
+edit registration:
+  title: Edit registration

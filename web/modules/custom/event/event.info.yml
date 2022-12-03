@@ -1,0 +1,7 @@
+name: Event entity
+description: Creates an event enity type that have relationships to Registrations and Users.
+package: Custom
+type: module
+dependencies:
+  - drupal:datetime
+core_version_requirement: ^10
