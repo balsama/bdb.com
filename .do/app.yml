@@ -59,6 +59,10 @@ services:
       - path: /
     run_command: vendor/bin/heroku-php-apache2 web/
     source_dir: /
+domains:
+  - domain: bigdayboston.com
+    type: PRIMARY
+    zone: bigdayboston.com
 jobs:
   - name: config-import
     run_command: composer post-deploy
