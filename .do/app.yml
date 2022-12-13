@@ -8,6 +8,10 @@ databases:
     version: "8"
 name: bdb-app
 region: nyc
+domains:
+  - domain: bigdayboston.com
+    type: PRIMARY
+    zone: bigdayboston.com
 services:
   - environment_slug: php
     envs:
