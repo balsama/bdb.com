@@ -30,7 +30,7 @@ services:
         value: "25060"
       - key: DB_DATABASE
         scope: RUN_AND_BUILD_TIME
-        value: defaultdb
+        value: drupal
       - key: SMTP_PASSWORD
         scope: RUN_AND_BUILD_TIME
         type: SECRET
@@ -89,7 +89,7 @@ jobs:
         value: "25060"
       - key: DB_DATABASE
         scope: RUN_AND_BUILD_TIME
-        value: defaultdb
+        value: drupal
       - key: SMTP_PASSWORD
         scope: RUN_AND_BUILD_TIME
         type: SECRET
@@ -105,4 +105,3 @@ jobs:
         scope: RUN_AND_BUILD_TIME
         type: SECRET
         value: EV[1:R4kENJmgqV4aFjqN+KXmKOfKRUv0phSp:CzzVKsZTEaiA/bumiERiiPNcrXs5sipI+R7caA9EfP7ceue4Xr9A7SixBiXCxGvxNRamI9qR++5Hr+M=]
-
