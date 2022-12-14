@@ -7,7 +7,6 @@ use Symfony\Component\Validator\ConstraintValidator;
 
 class UniqueEventConstraintValidator extends ConstraintValidator
 {
-
     /**
      * @inheritDoc
      */
