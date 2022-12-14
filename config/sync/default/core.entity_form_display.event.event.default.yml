@@ -1,0 +1,27 @@
+uuid: 531d9f1d-fbdb-4414-841d-8ea32e7bc85a
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - event
+id: event.event.default
+targetEntityType: event
+bundle: event
+mode: default
+content:
+  event_date:
+    type: datetime_default
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  label:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

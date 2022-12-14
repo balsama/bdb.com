@@ -5,6 +5,7 @@ dependencies:
   module:
     - comment
     - contact
+    - registration
     - search
     - system
 _core:
@@ -17,6 +18,8 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'create registration'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
+  - 'view registration'

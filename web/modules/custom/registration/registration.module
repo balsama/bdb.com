@@ -1,13 +1,40 @@
 <?php
 
+use Drupal\Core\Render\Element;
+
 function registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
 {
-    if (($form_id === 'registration_edit_form') || ($form_id === 'registration_add_form')) {
-        $form['user_reference']['#disabled'] = true;
-        $form['event_reference']['#disabled'] = true;
-        $form['fooo'] = [
-            '#markup' => '<p>You are registering for <strong>Big Day Boston 2023</strong>. Use the <em>Save</em> button below to confirm.</p>',
-            '#weight' => 10,
-        ];
+    if (($form_id === 'registration_edit_form') || ($form_id === 'registration_add_form') || ($form_id === 'user_form')) {
+        $form['uid']['widget'][0]['target_id']['#title'] = 'Registrant';
+        $form['uid']['widget'][0]['target_id']['#description'] = 'The user who is registering for the event. (Not editable)';
+    }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function registration_theme() {
+    return [
+        'registration' => [
+            'render element' => 'elements',
+        ],
+    ];
+}
+
+/**
+ * Prepares variables for registration templates.
+ *
+ * Default template: registration.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the registration information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_registration(array &$variables) {
+    $variables['view_mode'] = $variables['elements']['#view_mode'];
+    foreach (Element::children($variables['elements']) as $key) {
+        $variables['content'][$key] = $variables['elements'][$key];
     }
 }

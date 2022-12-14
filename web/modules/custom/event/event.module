@@ -11,8 +11,6 @@ use Drupal\Core\Render\Element;
  * Implements hook_theme().
  */
 function event_theme() {
-    $node = \Drupal\node\Entity\Node::load(2);
-    $foo = 21;
   return [
     'event' => [
       'render element' => 'elements',

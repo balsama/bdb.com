@@ -5,10 +5,10 @@ entity.registration.settings:
     _title: 'Registration'
   requirements:
     _permission: 'administer registration'
-anon.registration:
-  path: 'create-account-pre-register'
+entity.registration.canonical:
+  path: 'registration/{registration}'
   defaults:
-    _controller: '\Drupal\registration\Controller\PreregisterController::content'
-    _title: 'Create Account'
+    _entity_view: 'registration'
+    _title: 'Event Registration'
   requirements:
     _permission: 'access content'

@@ -14,7 +14,7 @@ field_name: user_picture
 entity_type: user
 bundle: user
 label: Picture
-description: 'Your virtual face or picture.'
+description: 'Optional. Your virtual face or picture. Will be shown next to any posts or photos you upload.'
 required: false
 translatable: true
 default_value: {  }
@@ -32,7 +32,7 @@ settings:
   title_field: false
   title_field_required: false
   default_image:
-    uuid: null
+    uuid: ''
     alt: ''
     title: ''
     width: null
