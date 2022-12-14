@@ -2,6 +2,8 @@
 
 namespace Drupal\registration\Plugin\Validation\Constraint;
 
+use Drupal\event\Entity\Event;
+use Drupal\user\Entity\User;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
@@ -12,7 +14,10 @@ class UniqueEventConstraintValidator extends ConstraintValidator
      */
     public function validate(mixed $value, Constraint $constraint)
     {
-        $foo = 21;
+        if ($_POST['field_event'] === '_none') {
+            // Handled by other validators.
+            return;
+        }
         $submitted_uid = null;
         $submitted_eid = null;
         foreach ($value as $item) {
@@ -32,7 +37,15 @@ class UniqueEventConstraintValidator extends ConstraintValidator
             ->condition('field_event', $submitted_eid);
         $result = $query->execute();
         if ($result) {
-            $this->context->addViolation($constraint->notUnique, ['%value' => 'EVENT_ID']);
+            $username = User::load($submitted_uid)->getDisplayName();
+            $eventname = Event::load($submitted_eid)->get('label')->getValue()[0]['value'];
+            $this->context->addViolation(
+                $constraint->notUnique,
+                [
+                    '%username' => $username,
+                    '%eventname' => $eventname
+                ]
+            );
         }
     }
 }

@@ -2,9 +2,12 @@ uuid: 231e0929-1667-48a2-89c0-d4c3fd1b6dd0
 langcode: en
 status: true
 dependencies:
+  config:
+    - field.field.event.event.field_event_description
   module:
     - datetime
     - event
+    - text
 id: event.event.default
 targetEntityType: event
 bundle: event
@@ -15,9 +18,16 @@ content:
     label: above
     settings:
       timezone_override: ''
-      format_type: medium
+      format_type: long
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_event_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
     region: content
   label:
     type: string

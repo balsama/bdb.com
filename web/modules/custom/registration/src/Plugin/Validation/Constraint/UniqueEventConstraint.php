@@ -15,5 +15,5 @@ use Symfony\Component\Validator\Constraint;
  */
 class UniqueEventConstraint extends Constraint
 {
-    public $notUnique = 'A Registration already exists for the submitted user and event.';
+    public $notUnique = 'User %username is already registered for the %eventname Event.';
 }

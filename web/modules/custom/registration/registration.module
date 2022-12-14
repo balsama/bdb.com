@@ -4,9 +4,8 @@ use Drupal\Core\Render\Element;
 
 function registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
 {
-    if (($form_id === 'registration_edit_form') || ($form_id === 'registration_add_form') || ($form_id === 'user_form')) {
-        $form['uid']['widget'][0]['target_id']['#title'] = 'Registrant';
-        $form['uid']['widget'][0]['target_id']['#description'] = 'The user who is registering for the event. (Not editable)';
+    if (($form_id === 'user_register_form')) {
+        $form['account']['name']['#description'] = 'This name will be used when registering for events and to identify any photos or posts created by you on the site.';
     }
 }
 

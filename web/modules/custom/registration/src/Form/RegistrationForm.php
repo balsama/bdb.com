@@ -39,7 +39,7 @@ class RegistrationForm extends ContentEntityForm
                 break;
         }
 
-        $form_state->setRedirect('entity.registration.collection');
+        $form_state->setRedirect('entity.registration.canonical', ['registration' => $entity->id()]);
 
         return $result;
     }

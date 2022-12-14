@@ -1,3 +1,11 @@
 administer event:
   title: 'Administer event settings'
   restrict access: true
+delete event:
+  title: Delete event
+create event:
+  title: Create event
+view event:
+  title: View event
+edit event:
+  title: Edit event

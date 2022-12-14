@@ -5,6 +5,7 @@ dependencies:
   module:
     - comment
     - contact
+    - event
     - registration
     - search
     - system
@@ -22,4 +23,5 @@ permissions:
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
+  - 'view event'
   - 'view registration'

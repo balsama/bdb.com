@@ -2,9 +2,12 @@ uuid: 531d9f1d-fbdb-4414-841d-8ea32e7bc85a
 langcode: en
 status: true
 dependencies:
+  config:
+    - field.field.event.event.field_event_description
   module:
     - datetime
     - event
+    - text
 id: event.event.default
 targetEntityType: event
 bundle: event
@@ -15,6 +18,16 @@ content:
     weight: 5
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_event_description:
+    type: text_textarea_with_summary
+    weight: 6
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
     third_party_settings: {  }
   label:
     type: string_textfield

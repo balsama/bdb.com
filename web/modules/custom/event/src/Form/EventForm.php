@@ -21,8 +21,8 @@ class EventForm extends ContentEntityForm
 
         $message_arguments = ['%label' => $entity->toLink()->toString()];
         $logger_arguments = [
-        '%label' => $entity->label(),
-        'link' => $entity->toLink($this->t('View'))->toString(),
+            '%label' => $entity->label(),
+            'link' => $entity->toLink($this->t('View'))->toString(),
         ];
 
         switch ($result) {

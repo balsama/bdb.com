@@ -9,7 +9,7 @@ entity.event.canonical:
   path: 'event/{event}'
   defaults:
     _entity_view: 'event'
-    _title: 'View message'
+    _title: 'Event'
   requirements:
     _permission: 'access content'
 

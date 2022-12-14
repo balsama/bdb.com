@@ -28,22 +28,28 @@ function bdb_content_install()
         ]);
     $user->save();
 
+    $about_body = <<<EOF
+        <p><strong>Big Day Boston</strong> is a friendly birding competition held in downtown Boston. This year's event will be held Saturday, May 6th 2023.</p>
+        <p>Participants compete to spot the largest number of different species of birds in a single day without leaving the downtown neighborhoods of Beacon Hill, Charlestown, Chinatown, Downtown, Leather District, and the North End - including the Common and the Public Garden. See Map:</p>
+        <p>Registrants will receive a checklist at registration at Copp's Hill. Checklists must be turned to the registration table by 4:15pm. Winner will be announced at 4:35!</p>
+        <p>Early registration coming soon.</p>
+    EOF;
+
     $event = Event::create(
         [
             'label' => 'Big Day Boston 2023',
             'event_date' => [
                 '2023-05-06',
+            ],
+            'field_description' => [
+              'value' => $about_body,
+              'summary' => '',
+              'format' => 'full_html'
             ]
         ]
     );
     $event->save();
 
-    $about_body = <<<EOF
-    <p><strong>Big Day Boston</strong> is a friendly birding competition held in downtown Boston. This year's event will be held Saturday, May 6th 2023.</p>
-    <p>Participants compete to spot the most different species of birds in a single day without leaving the downtown neighborhoods of Beacon Hill, Charlestown, Downtown, and the North End - including the Common and the Public Garden. See Map:</p>
-    <p>Registrants will receive a checklist at registration at Copp's Hill. Checklists must be turned to the registration table by 4:15pm. Winner will be announced at 4:35!</p>
-    <p>Early registration coming soon.</p>
-EOF;
     $about = Node::create(
         [
             'type' => 'page',
