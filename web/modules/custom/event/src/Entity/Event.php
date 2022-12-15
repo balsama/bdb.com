@@ -23,6 +23,7 @@ use Drupal\event\EventInterface;
  *   handlers = {
  *     "list_builder" = "Drupal\event\EventListBuilder",
  *     "views_data" = "Drupal\views\EntityViewsData",
+ *     "access" = "Drupal\event\EventAccessControlHandler",
  *     "form" = {
  *       "add" = "Drupal\event\Form\EventForm",
  *       "edit" = "Drupal\event\Form\EventForm",

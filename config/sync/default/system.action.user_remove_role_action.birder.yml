@@ -1,0 +1,14 @@
+uuid: 605f23b2-daf8-4fa5-a337-06ef05fc4574
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.birder
+  module:
+    - user
+id: user_remove_role_action.birder
+label: 'Remove the Birder role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: birder

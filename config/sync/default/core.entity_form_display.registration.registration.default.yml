@@ -1,0 +1,35 @@
+uuid: 9dba9cdb-a980-4df6-8762-05ff2c903efc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.registration.registration.field_event
+  module:
+    - readonly_field_widget
+    - registration
+id: registration.registration.default
+targetEntityType: registration
+bundle: registration
+mode: default
+content:
+  field_event:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: readonly_field_widget
+    weight: 5
+    region: content
+    settings:
+      label: above
+      formatter_type: author
+      formatter_settings:
+        entity_reference_entity_view:
+          view_mode: default
+        entity_reference_label:
+          link: true
+      show_description: false
+    third_party_settings: {  }
+hidden: {  }

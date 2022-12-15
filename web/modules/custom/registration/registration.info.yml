@@ -4,4 +4,5 @@ package: Custom
 type: module
 dependencies:
   - event:event
+  - drupal:field
 core_version_requirement: ^10

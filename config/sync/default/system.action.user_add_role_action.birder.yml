@@ -1,0 +1,14 @@
+uuid: b67b629e-ca73-4bb4-9c23-98ee0415d76c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.birder
+  module:
+    - user
+id: user_add_role_action.birder
+label: 'Add the Birder role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: birder

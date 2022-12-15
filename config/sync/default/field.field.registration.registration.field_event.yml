@@ -1,0 +1,27 @@
+uuid: 3241f22f-3872-4a53-ad2f-f807e41860eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.registration.field_event
+  module:
+    - registration
+id: registration.registration.field_event
+field_name: field_event
+entity_type: registration
+bundle: registration
+label: Event
+description: 'The event the user is registering for.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:event'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

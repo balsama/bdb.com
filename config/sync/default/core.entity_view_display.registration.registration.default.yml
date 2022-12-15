@@ -1,0 +1,23 @@
+uuid: a3ad9e15-a431-41ab-b5c5-dcd1019b0a46
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.registration.registration.field_event
+  module:
+    - registration
+    - user
+id: registration.registration.default
+targetEntityType: registration
+bundle: registration
+mode: default
+content:
+  field_event:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

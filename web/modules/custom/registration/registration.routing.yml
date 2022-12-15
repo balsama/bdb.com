@@ -5,3 +5,10 @@ entity.registration.settings:
     _title: 'Registration'
   requirements:
     _permission: 'administer registration'
+entity.registration.canonical:
+  path: 'registration/{registration}'
+  defaults:
+    _entity_view: 'registration'
+    _title: 'Event Registration'
+  requirements:
+    _permission: 'access content'

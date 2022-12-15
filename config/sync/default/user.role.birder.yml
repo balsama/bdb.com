@@ -1,0 +1,12 @@
+uuid: 755cd944-5e41-4e08-a293-4f6f9e3081b3
+langcode: en
+status: true
+dependencies:
+  module:
+    - registration
+id: birder
+label: Birder
+weight: 4
+is_admin: null
+permissions:
+  - 'create registration'

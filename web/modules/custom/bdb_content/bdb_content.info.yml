@@ -1,0 +1,8 @@
+name: Big Day Boston Content
+description: Default content for Big Day Boston.
+package: Custom
+type: module
+dependencies:
+  - event:event
+  - registration:registration
+core_version_requirement: ^10
