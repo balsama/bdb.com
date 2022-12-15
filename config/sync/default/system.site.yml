@@ -3,12 +3,12 @@ _core:
 langcode: en
 uuid: bbf8b222-b45b-42be-a4b1-5620ae9b695b
 name: 'Big Day Boston'
-mail: null
+mail: admin@bigdayboston.com
 slogan: 'Downtown Boston Birding Competition'
 page:
   403: ''
   404: ''
-  front: /node
+  front: /node/1
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en

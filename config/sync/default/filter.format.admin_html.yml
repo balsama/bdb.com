@@ -1,0 +1,17 @@
+uuid: 4420ad42-c459-401b-bc22-9aba4e999df9
+langcode: en
+status: true
+dependencies: {  }
+name: 'Admin HTML'
+format: admin_html
+weight: 0
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<br> <p> <h2> <h3> <h4> <h5> <h6> <strong> <em>'
+      filter_html_help: true
+      filter_html_nofollow: false
