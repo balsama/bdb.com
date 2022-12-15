@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.registration.field_event
+    - user.role.authenticated
   module:
     - registration
     - user
@@ -181,8 +182,10 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            authenticated: authenticated
       cache:
         type: tag
         options: {  }
@@ -196,7 +199,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'No event registrations found. <a href="registration/add" class="btn button">Register for an event</a>'
+          content: 'No event registrations found. <a href="[site:url]registration/add" class="btn button">Register for an event</a>'
           tokenize: false
       sorts: {  }
       arguments:
@@ -272,6 +275,7 @@ display:
         - url
         - url.query_args
         - user
+        - user.roles
       tags:
         - 'config:field.storage.registration.field_event'
   block_1:
@@ -295,6 +299,7 @@ display:
         - 'languages:language_interface'
         - url
         - user
+        - user.roles
       tags:
         - 'config:field.storage.registration.field_event'
   page_1:
@@ -313,5 +318,6 @@ display:
         - url
         - url.query_args
         - user
+        - user.roles
       tags:
         - 'config:field.storage.registration.field_event'
