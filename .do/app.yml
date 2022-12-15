@@ -28,7 +28,7 @@ services:
         value: EV[1:cuxM6npzsuRqJdUHAnrDh+jtHfAgVg88:vSf4AEGt5gP+9V2bwVVp0spVSPYRHF0YyMqAZCmtyger+pX+EL+0jA==]
       - key: DB_HOST
         scope: RUN_AND_BUILD_TIME
-        value: private-bdb-mysql-prod-do-user-2963441-0.b.db.ondigitalocean.com
+        value: bdb-mysql-prod-do-user-2963441-0.b.db.ondigitalocean.com
       - key: DB_PORT
         scope: RUN_AND_BUILD_TIME
         value: "25060"
