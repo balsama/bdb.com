@@ -50,6 +50,10 @@ services:
         scope: RUN_AND_BUILD_TIME
         type: SECRET
         value: EV[1:R4kENJmgqV4aFjqN+KXmKOfKRUv0phSp:CzzVKsZTEaiA/bumiERiiPNcrXs5sipI+R7caA9EfP7ceue4Xr9A7SixBiXCxGvxNRamI9qR++5Hr+M=]
+      - key: RECAPTCHA_V3_SECRET
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: EV[1:1SDXEbPe2mpze7hq+RXMGUQ7Ia86KZsm:sDPdlkIZActCOut9V9xQhKKBvzqmv/FeDY1Mv1Rcl8iv9Mg4F/4x8W91yzpNbAksBV5TD7djqJE=]
     github:
       branch: main
       deploy_on_push: true
@@ -108,3 +112,7 @@ jobs:
         scope: RUN_AND_BUILD_TIME
         type: SECRET
         value: EV[1:R4kENJmgqV4aFjqN+KXmKOfKRUv0phSp:CzzVKsZTEaiA/bumiERiiPNcrXs5sipI+R7caA9EfP7ceue4Xr9A7SixBiXCxGvxNRamI9qR++5Hr+M=]
+      - key: RECAPTCHA_V3_SECRET
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: EV[1:1SDXEbPe2mpze7hq+RXMGUQ7Ia86KZsm:sDPdlkIZActCOut9V9xQhKKBvzqmv/FeDY1Mv1Rcl8iv9Mg4F/4x8W91yzpNbAksBV5TD7djqJE=]
