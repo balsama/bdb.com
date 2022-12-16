@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "90e1d42a6f33ab3d8d219ae1b67890b3",
+    "content-hash": "e56edeb03d22cd2c970ae16bb47dd026",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2061,6 +2061,55 @@
             }
         },
         {
+            "name": "drupal/mail_login",
+            "version": "dev-2.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/mail_login.git",
+                "reference": "35bc3b7c2a03c16753e2de2373d9780a947c4637"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.6+5-dev",
+                    "datestamp": "1668748704",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Mohammad AlQanneh",
+                    "homepage": "https://www.drupal.org/u/mqanneh",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module enables users to login by email address.",
+            "homepage": "https://www.drupal.org/project/mail_login",
+            "keywords": [
+                "drupal",
+                "php",
+                "user"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/mail_login",
+                "issues": "http://drupal.org/project/issues/mail_login",
+                "email": "mqanneh@gmail.com"
+            }
+        },
+        {
             "name": "drupal/metatag",
             "version": "1.22.0",
             "source": {
@@ -2240,6 +2289,60 @@
             }
         },
         {
+            "name": "drupal/recaptcha_v3",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/recaptcha_v3.git",
+                "reference": "8.x-1.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/recaptcha_v3-8.x-1.7.zip",
+                "reference": "8.x-1.7",
+                "shasum": "69ce7ca77612e8f0890295d4c69281bdc26569ea"
+            },
+            "require": {
+                "drupal/captcha": "^1.0.0-beta4",
+                "drupal/core": "^9.1 || ^10",
+                "google/recaptcha": "^1.2"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.7",
+                    "datestamp": "1665472068",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "B-Prod",
+                    "homepage": "https://www.drupal.org/user/407852"
+                },
+                {
+                    "name": "dench0",
+                    "homepage": "https://www.drupal.org/user/896504"
+                },
+                {
+                    "name": "majid.ali",
+                    "homepage": "https://www.drupal.org/user/1271330"
+                }
+            ],
+            "description": "The reCaptcha V3 module provides integration with Google reCaptcha V3 and CAPTCHA module.",
+            "homepage": "https://www.drupal.org/project/recaptcha_v3",
+            "support": {
+                "source": "https://git.drupalcode.org/project/recaptcha_v3"
+            }
+        },
+        {
             "name": "drupal/redirect",
             "version": "1.8.0",
             "source": {
@@ -2289,75 +2392,6 @@
             "homepage": "https://www.drupal.org/project/redirect",
             "support": {
                 "source": "https://git.drupalcode.org/project/redirect"
-            }
-        },
-        {
-            "name": "drupal/riddler",
-            "version": "2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/riddler.git",
-                "reference": "2.0.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/riddler-2.0.2.zip",
-                "reference": "2.0.2",
-                "shasum": "76822a4acd963a416a7b57358b70e51c1a0ce71a"
-            },
-            "require": {
-                "drupal/captcha": "^1.1",
-                "drupal/core": "^8.9 || ^9 || ^10"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.0.2",
-                    "datestamp": "1666163104",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "alex_optim",
-                    "homepage": "https://www.drupal.org/user/3317601"
-                },
-                {
-                    "name": "Anybody",
-                    "homepage": "https://www.drupal.org/user/291091"
-                },
-                {
-                    "name": "awolfey",
-                    "homepage": "https://www.drupal.org/user/277371"
-                },
-                {
-                    "name": "Grevil",
-                    "homepage": "https://www.drupal.org/user/3668491"
-                },
-                {
-                    "name": "imerlin",
-                    "homepage": "https://www.drupal.org/user/21895"
-                },
-                {
-                    "name": "thomas.frobieter",
-                    "homepage": "https://www.drupal.org/user/409335"
-                }
-            ],
-            "description": "Provides a question and answer CAPTCHA.",
-            "homepage": "https://www.drupal.org/project/riddler",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/riddler",
-                "issues": "https://www.drupal.org/project/issues/riddler"
             }
         },
         {
@@ -2917,6 +2951,58 @@
                 "source": "https://github.com/enlightn/security-checker/tree/v1.10.0"
             },
             "time": "2022-02-21T22:40:16+00:00"
+        },
+        {
+            "name": "google/recaptcha",
+            "version": "1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/google/recaptcha.git",
+                "reference": "614f25a9038be4f3f2da7cbfd778dc5b357d2419"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/google/recaptcha/zipball/614f25a9038be4f3f2da7cbfd778dc5b357d2419",
+                "reference": "614f25a9038be4f3f2da7cbfd778dc5b357d2419",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.2.20|^2.15",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^4.8.36|^5.7.27|^6.59|^7.5.11"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ReCaptcha\\": "src/ReCaptcha"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Client library for reCAPTCHA, a free service that protects websites from spam and abuse.",
+            "homepage": "https://www.google.com/recaptcha/",
+            "keywords": [
+                "Abuse",
+                "captcha",
+                "recaptcha",
+                "spam"
+            ],
+            "support": {
+                "forum": "https://groups.google.com/forum/#!forum/recaptcha",
+                "issues": "https://github.com/google/recaptcha/issues",
+                "source": "https://github.com/google/recaptcha"
+            },
+            "time": "2020-03-31T17:50:54+00:00"
         },
         {
             "name": "grasmash/expander",

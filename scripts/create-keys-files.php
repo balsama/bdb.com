@@ -13,7 +13,8 @@ $keys = [
     'SITE_EMAIL',
     'SMTP_PASSWORD',
     'AWS_ACCESS_KEY',
-    'AWS_SECRET_KEY'
+    'AWS_SECRET_KEY',
+    'RECAPTCHA_V3_SECRET',
 ];
 
 foreach ($keys as $key) {
