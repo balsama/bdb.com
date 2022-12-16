@@ -31,6 +31,12 @@ class UniqueEventConstraintValidator extends ConstraintValidator
             }
         }
 
+        if ($submitted_uid === 0) {
+            $this->context->addViolation(
+                $constraint->notAuthenticated,
+            );
+        }
+
         $query = \Drupal::entityQuery('registration')
             ->accessCheck(false)
             ->condition('uid', $submitted_uid)

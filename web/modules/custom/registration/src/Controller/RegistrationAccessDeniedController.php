@@ -12,16 +12,21 @@ class RegistrationAccessDeniedController extends ControllerBase
         $formObject = \Drupal::entityTypeManager()
             ->getFormObject('user', 'register')
             ->setEntity($entity);
-        $registerForm = \Drupal::formBuilder()->getForm($formObject);
+        $userRegisterForm = \Drupal::formBuilder()->getForm($formObject);
+        $loginForm = \Drupal::formBuilder()->getForm(\Drupal\user\Form\UserLoginForm::class);
+        //$eventRegistrationForm = \Drupal::formBuilder()->getForm(\Drupal\registration\Form\RegistrationForm::class);
 
-        $loginForm = \Drupal::formBuilder()->getForm(\Drupal\user\Form\UserLoginForm::class) ;
+        $entity = \Drupal::entityTypeManager()->getStorage('registration')->create(array());
+        $formObject = \Drupal::entityTypeManager()
+            ->getFormObject('registration', 'add')
+            ->setEntity($entity);
+        $eventRegistrationForm = \Drupal::formBuilder()->getForm($formObject);
 
         return [
-            // Your theme hook name.
             '#theme' => 'register_add_access_denied_hook',
-            // Your variables.
-            '#register_form' => $registerForm,
+            '#user_register_form' => $userRegisterForm,
             '#login_form' => $loginForm,
+            '#event_registration_form' => $eventRegistrationForm,
         ];
     }
 }

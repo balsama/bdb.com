@@ -16,4 +16,8 @@ use Symfony\Component\Validator\Constraint;
 class UniqueEventConstraint extends Constraint
 {
     public $notUnique = 'User %username is already registered for the %eventname Event.';
+    public $notAuthenticated = <<<EOF
+You must be logged in to register for an Event.<br>
+<a href="/user/login">Log in</a> or <a href="/user/register">Create an Account</a>.
+EOF;
 }

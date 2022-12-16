@@ -16,6 +16,6 @@ entity.registration.access_denied:
   path: 'registration/add/access-denied'
   defaults:
     _controller: '\Drupal\registration\Controller\RegistrationAccessDeniedController::content'
-    _title: 'You need to be logged in to do that'
+    _title: 'Sign up and Register'
   requirements:
     _permission: 'access content'

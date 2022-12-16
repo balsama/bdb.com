@@ -1,7 +1,18 @@
-<p class="messages">You need to be logged in with a valid account to register for events. Login or create a new account below.</p>
-<h2>Login:</h2>
-<p>{{ login_form }}</p>
-<h3>- or -</h3>
-<h2>Create new account:</h2>
-<p>{{ register_form }}</p>
+<p class="messages">You need to be logged in with a valid account to register for Events.
+<ul class="notification">
+    <li><a href="#create-account">create a new account</a>, or</li>
+    <li><a href="#login">Login to an existing account</a>, or</li>
+    <li>if you're already logged in, <a href="#register-event">register for an event</a> below.</li>
+</ul>
+</p>
 
+<h2 id="login">Login:</h2>
+<p>{{ login_form }}</p>
+
+<h3>- or -</h3>
+<h2 id="create-account">Create new account:</h2>
+<p>{{ user_register_form }}</p>
+
+<h3>- or -</h3>
+<h2 id="register-event">Register for an Event:</h2>
+<p>{{ event_registration_form }}</p>
