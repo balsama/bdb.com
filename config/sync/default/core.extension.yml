@@ -7,6 +7,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  captcha: 0
   ckeditor5: 0
   comment: 0
   config: 0
@@ -28,6 +29,7 @@ module:
   inline_entity_form: 0
   key: 0
   link: 0
+  mail_login: 0
   menu_link_content: 0
   menu_ui: 0
   mysql: 0
@@ -37,6 +39,7 @@ module:
   path: 0
   path_alias: 0
   readonly_field_widget: 0
+  recaptcha_v3: 0
   registration: 0
   s3fs: 0
   search: 0
