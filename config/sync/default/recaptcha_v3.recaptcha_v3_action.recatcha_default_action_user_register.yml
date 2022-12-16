@@ -5,4 +5,4 @@ dependencies: {  }
 id: recatcha_default_action_user_register
 label: 'reCATCHA default action user register'
 threshold: 0.5
-challenge: default
+challenge: recaptcha/reCAPTCHA
