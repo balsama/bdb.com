@@ -15,6 +15,7 @@ $keys = [
     'AWS_ACCESS_KEY',
     'AWS_SECRET_KEY',
     'RECAPTCHA_V3_SECRET',
+    'RECAPTCHA_V2_SECRET',
 ];
 
 foreach ($keys as $key) {
