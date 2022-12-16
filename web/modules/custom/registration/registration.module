@@ -1,23 +1,13 @@
 <?php
 
 use Drupal\Core\Render\Element;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 function registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
 {
     if (($form_id === 'user_register_form')) {
         $form['account']['name']['#description'] = 'This name will be used when registering for events and to identify any photos or posts created by you on the site.';
     }
-}
-
-/**
- * Implements hook_theme().
- */
-function registration_theme() {
-    return [
-        'registration' => [
-            'render element' => 'elements',
-        ],
-    ];
 }
 
 /**
@@ -36,4 +26,29 @@ function template_preprocess_registration(array &$variables) {
     foreach (Element::children($variables['elements']) as $key) {
         $variables['content'][$key] = $variables['elements'][$key];
     }
+}
+
+function registration_preprocess_page__403(&$variables) {
+    $route = \Drupal::routeMatch()->getMasterRouteMatch()->getRouteName();
+    if ($route === 'entity.registration.add_form') {
+        $redirectPath = \Drupal::urlGenerator()->getPathFromRoute('entity.registration.access_denied');
+        $response = new RedirectResponse(base_path() . $redirectPath);
+        $response->send();
+    }
+}
+
+function registration_theme($existing, $type, $theme, $path) {
+
+    return [
+        'register_add_access_denied_hook' => [
+            'render element' => 'children',
+            'template' => 'register-add-access-denied-hook',
+            'path' => $path . '/templates',
+            'variables' => [
+                'user_register_form' => 'Register Form',
+                'login_form' => 'Login Form',
+                'event_registration_form' => 'Event Registration Form',
+            ],
+        ],
+    ];
 }
