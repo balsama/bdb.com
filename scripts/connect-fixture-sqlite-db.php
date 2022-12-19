@@ -15,6 +15,10 @@ $fs->copy(
 );
 
 $fs->chown(__DIR__ . '/../web/sites', get_current_user(), true);
+$fs->chown(__DIR__ . '/../web/sites/default', get_current_user(), true);
+$fs->touch(__DIR__ . '/../web/sites/default/foo.txt');
+
+exec('ls -la ' . $defaultSettingsPath);
 
 $fs->copy(
     $defaultSettingsPath . '/default.settings.fixturedb.php',
