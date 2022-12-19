@@ -14,7 +14,7 @@ $fs->copy(
     $defaultSettingsPath . '/databases/' . Helpers::FIXTURE_NAME,
 );
 
-$fs->chmod($defaultSettingsPath, 665);
+$fs->chmod($defaultSettingsPath, 777);
 $fs->copy(
     $defaultSettingsPath . '/default.settings.fixturedb.php',
     $defaultSettingsPath . '/settings.fixturedb.php',
