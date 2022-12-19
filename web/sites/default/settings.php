@@ -819,4 +819,7 @@ if (file_exists(__DIR__ . '/settings.emptydb.php')) {
     $config["config_split.config_split.local"]["status"] = TRUE;
     $config["config_split.config_split.prod"]["status"] = FALSE;
 }
+if (file_exists(__DIR__ . '/settings.fixturedb.php')) {
+    include __DIR__ . '/settings.fixturedb.php';
+}
 $settings['config_sync_directory'] = __DIR__ . '/../../../config/sync/default';

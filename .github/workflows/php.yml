@@ -34,3 +34,6 @@ jobs:
 
     - name: Install from config
       run: composer run-script quickstart
+
+    - name: Upgrade test
+      run: composer run-script upgrade-test

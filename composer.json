@@ -92,10 +92,16 @@
         "lint": "./vendor/bin/phpcs --standard=PSR12 ./web/modules/custom ./scripts",
         "connect-empty-sqlite-db": "php ./scripts/connect-empty-sqlite-db.php",
         "cleanup-empty-sqlite-db": "php ./scripts/cleanup-empty-sqlite-db.php",
+        "connect-fixture-sqlite-db": "php scripts/connect-fixture-sqlite-db.php",
+        "cleanup-fixture-sqlite-db": "php ./scripts/cleanup-fixture-sqlite-db.php",
         "install-from-config": "./vendor/bin/drush site:install --existing-config --yes",
         "quickstart": [
             "composer run-script connect-empty-sqlite-db",
             "composer run-script install-from-config"
+        ],
+        "upgrade-test": [
+            "composer run-script connect-fixture-sqlite-db",
+            "composer run-script post-deploy"
         ],
         "post-deploy": [
             "./vendor/bin/drush cache:rebuild",
