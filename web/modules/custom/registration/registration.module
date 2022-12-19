@@ -18,6 +18,10 @@ function registration_form_alter(&$form, FormStateInterface $form_state, $form_i
             }
         }
     }
+
+    if ($form_id === 'user_form') {
+        $form['actions']['submit']['#submit'][] = 'registration_user_edit_form_submit';
+    }
 }
 
 function registration_form_submit(array $form, FormStateInterface $form_state) {
@@ -38,6 +42,13 @@ function registration_form_submit(array $form, FormStateInterface $form_state) {
         \Drupal::messenger()->deleteAll();
         \Drupal::messenger()->addStatus($message);
     }
+}
+
+function registration_user_edit_form_submit($form, &$form_state) {
+    $form_state->setRedirect('entity.user.canonical', ['user' => \Drupal::currentUser()->id()]);
+    $message = 'The changes to your profile have been saved.';
+    \Drupal::messenger()->deleteAll();
+    \Drupal::messenger()->addStatus($message);
 }
 
 /**
