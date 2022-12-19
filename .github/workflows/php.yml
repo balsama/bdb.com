@@ -35,8 +35,5 @@ jobs:
     - name: Install from config
       run: composer run-script quickstart
 
-    - name: Connect fixture db
-      run: composer run-script connect-fixture-sqlite-db
-
     - name: Upgrade test
-      run: composer run-script post-deploy
+      run: composer run-script upgrade-test
