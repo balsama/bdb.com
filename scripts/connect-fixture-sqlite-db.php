@@ -17,6 +17,9 @@ $fs->copy(
 
 $fs->chown(__DIR__ . '/../web/sites', get_current_user(), true);
 $fs->chown(__DIR__ . '/../web/sites/default', get_current_user(), true);
+$fs->chgrp(__DIR__ . '/../web/sites', get_current_user(), true);
+$fs->chgrp(__DIR__ . '/../web/sites/default', get_current_user(), true);
+$fs->chmod(__DIR__ . '/../web/sites', 665, 000, true);
 exec('ls -la ' . $defaultSettingsPath);
 exec('ls -la ' . $oneup);
 $fs->touch(__DIR__ . '/../web/sites/default/foo.txt');
