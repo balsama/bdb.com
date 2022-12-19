@@ -70,12 +70,9 @@ function template_preprocess_registration(array &$variables) {
 }
 
 function registration_preprocess_page__403(&$variables) {
-    $route = \Drupal::routeMatch()->getMasterRouteMatch()->getRouteName();
-    if ($route === 'entity.registration.add_form') {
-        $redirectPath = \Drupal::urlGenerator()->getPathFromRoute('entity.registration.access_denied');
-        $response = new RedirectResponse(base_path() . $redirectPath);
-        $response->send();
-    }
+    $redirectPath = \Drupal::urlGenerator()->getPathFromRoute('entity.registration.access_denied');
+    $response = new RedirectResponse(base_path() . $redirectPath);
+    $response->send();
 }
 
 function registration_theme($existing, $type, $theme, $path) {
