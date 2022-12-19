@@ -4,6 +4,8 @@ namespace Bdb;
 
 class Helpers
 {
+    public const FIXTURE_NAME = 'fixture--2022-12-19--sanitized.sqlite.db';
+
     public static function getKeyValue(string $key_name): string
     {
         if (getenv($key_name)) {
