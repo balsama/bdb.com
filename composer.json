@@ -100,7 +100,8 @@
             "composer run-script install-from-config"
         ],
         "foo": [
-            "ls -la web/sites/default"
+            "ls -la web/sites/default",
+            "whoami"
         ],
         "upgrade-test": [
             "composer run-script connect-fixture-sqlite-db",
