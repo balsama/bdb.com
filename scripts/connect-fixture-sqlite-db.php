@@ -7,13 +7,14 @@ use Symfony\Component\Filesystem\Filesystem;
 use Bdb\Helpers;
 
 $fs = new Filesystem();
+$defaultSettingsPath = __DIR__ . '/../web/sites/default';
 
 $fs->copy(
     __DIR__ . '/../fixtures/' . Helpers::FIXTURE_NAME,
-    __DIR__ . '/../web/sites/default/databases/' . Helpers::FIXTURE_NAME,
+    $defaultSettingsPath . '/databases/' . Helpers::FIXTURE_NAME,
 );
 
 $fs->copy(
-    __DIR__ . '/../web/sites/default/default.settings.fixturedb.php',
-    __DIR__ . '/../web/sites/default/settings.fixturedb.php',
+    $defaultSettingsPath . '/default.settings.fixturedb.php',
+    $defaultSettingsPath . '/settings.fixturedb.php',
 );
