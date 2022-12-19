@@ -8,6 +8,7 @@ use Bdb\Helpers;
 
 $fs = new Filesystem();
 $defaultSettingsPath = __DIR__ . '/../web/sites/default';
+$oneup = __DIR__ . '/../web/sites';
 
 $fs->copy(
     __DIR__ . '/../fixtures/' . Helpers::FIXTURE_NAME,
@@ -16,6 +17,8 @@ $fs->copy(
 
 $fs->chown(__DIR__ . '/../web/sites', get_current_user(), true);
 $fs->chown(__DIR__ . '/../web/sites/default', get_current_user(), true);
+exec('ls -la ' . $defaultSettingsPath);
+exec('ls -la ' . $oneup);
 $fs->touch(__DIR__ . '/../web/sites/default/foo.txt');
 
 exec('ls -la ' . $defaultSettingsPath);
