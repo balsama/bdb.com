@@ -15,3 +15,7 @@ $fs->copy(
     $defaultSettingsPath . '/default.settings.emptydb.php',
     $defaultSettingsPath . '/settings.emptydb.php',
 );
+$fs->copy(
+    $defaultSettingsPath . '/default.settings.fixturedb.php',
+    $defaultSettingsPath . '/settings.fixturedb.php',
+);
