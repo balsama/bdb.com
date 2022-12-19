@@ -9,6 +9,7 @@ function registration_form_alter(&$form, FormStateInterface $form_state, $form_i
 {
     if (($form_id === 'user_register_form')) {
         $form['account']['name']['#description'] = 'This name will be used when registering for events and to identify any photos or posts created by you on the site.';
+        $form['actions']['submit']['#submit'][] = 'registration_user_register_form_submit';
     }
 
     if (($form_id === 'registration_add_form')) {
@@ -22,6 +23,12 @@ function registration_form_alter(&$form, FormStateInterface $form_state, $form_i
     if ($form_id === 'user_form') {
         $form['actions']['submit']['#submit'][] = 'registration_user_edit_form_submit';
     }
+}
+
+function registration_user_register_form_submit(array $form, FormStateInterface $form_state) {
+    $message = 'A welcome message with further instructions has been sent to your email address. Once you verify your email, you\'ll be able to register for Events.';
+    \Drupal::messenger()->deleteAll();
+    \Drupal::messenger()->addStatus($message);
 }
 
 function registration_form_submit(array $form, FormStateInterface $form_state) {
