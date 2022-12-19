@@ -14,6 +14,9 @@ $fs->copy(
     $defaultSettingsPath . '/databases/' . Helpers::FIXTURE_NAME,
 );
 
+echo "Current directory:\n";
+echo __DIR__;
+
 $fs->copy(
     $defaultSettingsPath . '/default.settings.fixturedb.php',
     $defaultSettingsPath . '/settings.fixturedb.php',
