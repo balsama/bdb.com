@@ -100,8 +100,8 @@
             "composer run-script install-from-config"
         ],
         "upgrade-test": [
-            "composer run-script @connect-fixture-sqlite-db",
-            "composer run-script @post-install-cmd"
+            "composer run-script connect-fixture-sqlite-db",
+            "composer run-script post-install-cmd"
         ],
         "post-deploy": [
             "./vendor/bin/drush cache:rebuild",
