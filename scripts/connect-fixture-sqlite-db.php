@@ -14,7 +14,7 @@ $fs->copy(
     $defaultSettingsPath . '/databases/' . Helpers::FIXTURE_NAME,
 );
 
-$fs->chown(__DIR__ . '/../web/sites', 'runner');
+$fs->chown(__DIR__ . '/../web/sites', get_current_user(), true);
 $fs->chmod(__DIR__ . '/../web/sites', 775, 0000, true);
 
 $fs->copy(
