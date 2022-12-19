@@ -99,6 +99,9 @@
             "composer run-script connect-empty-sqlite-db",
             "composer run-script install-from-config"
         ],
+        "foo": [
+            "ls -la web/sites/default"
+        ],
         "upgrade-test": [
             "composer run-script connect-fixture-sqlite-db",
             "composer run-script post-install-cmd"
