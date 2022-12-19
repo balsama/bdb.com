@@ -11,9 +11,7 @@ $databaseFile = $defaultSettingsPath . '/databases/empty.sqlite.db';
 $fs->remove($databaseFile);
 $fs->touch($databaseFile);
 
-$emptyDatabaseDefaultSettingsFileName = '/default.settings.emptydb.php';
-$emptyDatabaseSettingsFileName = '/settings.emptydb.php';
 $fs->copy(
-    $defaultSettingsPath . $emptyDatabaseDefaultSettingsFileName,
-    $defaultSettingsPath . $emptyDatabaseSettingsFileName
+    $defaultSettingsPath . '/default.settings.emptydb.php',
+    $defaultSettingsPath . '/settings.emptydb.php',
 );
