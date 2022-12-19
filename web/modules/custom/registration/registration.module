@@ -1,12 +1,42 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
+use Drupal\event\Entity\Event;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-function registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+function registration_form_alter(&$form, FormStateInterface $form_state, $form_id)
 {
     if (($form_id === 'user_register_form')) {
         $form['account']['name']['#description'] = 'This name will be used when registering for events and to identify any photos or posts created by you on the site.';
+    }
+
+    if (($form_id === 'registration_add_form')) {
+        foreach (array_keys($form['actions']) as $action) {
+            if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+                $form['actions'][$action]['#submit'][] = 'registration_form_submit';
+            }
+        }
+    }
+}
+
+function registration_form_submit(array $form, FormStateInterface $form_state) {
+    $eventId = $form_state->getValue('field_event');
+    if ($eventId) {
+        // Redirect to the event that they registered for page.
+        $event = Event::load($eventId[0]['target_id']);
+        $route = $event->toUrl()->getRouteName();
+        $form_state->setRedirect($route, ['event' => $eventId[0]['target_id']]);
+
+        // Better status message.
+        $fields = $event->getFields();
+        $event_name = $fields['label']->getValue()[0]['value'];
+        $message = sprintf(
+            "You have successfully registered for Event: %s",
+            $event_name,
+        );
+        \Drupal::messenger()->deleteAll();
+        \Drupal::messenger()->addStatus($message);
     }
 }
 
