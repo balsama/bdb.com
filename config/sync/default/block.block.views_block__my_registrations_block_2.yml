@@ -1,0 +1,38 @@
+uuid: 6c1af3fd-2670-47f7-9595-c04bab9037ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.my_registrations
+  module:
+    - system
+    - user
+    - views
+  theme:
+    - olivero
+id: views_block__my_registrations_block_2
+theme: olivero
+region: content_above
+weight: -8
+provider: null
+plugin: 'views_block:my_registrations-block_2'
+settings:
+  id: 'views_block:my_registrations-block_2'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/event/*'
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

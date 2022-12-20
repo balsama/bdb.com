@@ -1,4 +1,4 @@
-uuid: 1152269e-eeb6-464b-a727-3f8490da380d
+uuid: bff7c5f4-25a3-4ad3-8c75-7e3e768bb9ca
 langcode: en
 status: true
 dependencies:
@@ -6,13 +6,14 @@ dependencies:
     - views.view.my_registrations
   module:
     - system
+    - user
     - views
   theme:
     - olivero
-id: views_block__my_registrations_block_1
+id: views_block__my_registrations_block_1_2
 theme: olivero
-region: sidebar
-weight: 0
+region: content
+weight: -7
 provider: null
 plugin: 'views_block:my_registrations-block_1'
 settings:
@@ -24,6 +25,13 @@ settings:
   views_label: ''
   items_per_page: none
 visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
   request_path:
     id: request_path
     negate: false
