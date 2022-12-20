@@ -34,5 +34,5 @@ visibility:
       authenticated: authenticated
   request_path:
     id: request_path
-    negate: false
-    pages: '/user/*'
+    negate: true
+    pages: "/user/*/edit\r\n/event/*\r\n<front>\r\n/register\r\n/registration/add"
