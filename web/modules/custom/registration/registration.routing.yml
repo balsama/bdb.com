@@ -12,10 +12,10 @@ entity.registration.canonical:
     _title: 'Event Registration'
   requirements:
     _permission: 'access content'
-entity.registration.access_denied:
-  path: 'registration/add/access-denied'
+entity.registration.register:
+  path: 'register'
   defaults:
-    _controller: '\Drupal\registration\Controller\RegistrationAccessDeniedController::content'
+    _controller: '\Drupal\registration\Controller\RegistrationRegisterController::content'
     _title: 'Sign up and Register'
   requirements:
     _permission: 'access content'

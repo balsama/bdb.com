@@ -4,7 +4,7 @@ namespace Drupal\registration\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
-class RegistrationAccessDeniedController extends ControllerBase
+class RegistrationRegisterController extends ControllerBase
 {
     public function content()
     {
@@ -14,7 +14,6 @@ class RegistrationAccessDeniedController extends ControllerBase
             ->setEntity($entity);
         $userRegisterForm = \Drupal::formBuilder()->getForm($formObject);
         $loginForm = \Drupal::formBuilder()->getForm(\Drupal\user\Form\UserLoginForm::class);
-        //$eventRegistrationForm = \Drupal::formBuilder()->getForm(\Drupal\registration\Form\RegistrationForm::class);
 
         $entity = \Drupal::entityTypeManager()->getStorage('registration')->create(array());
         $formObject = \Drupal::entityTypeManager()
@@ -22,11 +21,14 @@ class RegistrationAccessDeniedController extends ControllerBase
             ->setEntity($entity);
         $eventRegistrationForm = \Drupal::formBuilder()->getForm($formObject);
 
+        $userId = \Drupal::currentUser()->id();
+
         return [
             '#theme' => 'register_add_access_denied_hook',
             '#user_register_form' => $userRegisterForm,
             '#login_form' => $loginForm,
             '#event_registration_form' => $eventRegistrationForm,
+            '#user_id' => $userId,
         ];
     }
 }

@@ -8,3 +8,8 @@ entity.registration.collection:
   description: 'List of registrations.'
   route_name: entity.registration.collection
   parent: system.admin_content
+entity.registration.register:
+  title: 'Register'
+  description: 'Register for Big Day Boston'
+  route_name: entity.registration.register
+  menu_name: main

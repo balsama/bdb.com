@@ -77,7 +77,7 @@ function template_preprocess_registration(array &$variables) {
 }
 
 function registration_preprocess_page__403(&$variables) {
-    $redirectPath = \Drupal::urlGenerator()->getPathFromRoute('entity.registration.access_denied');
+    $redirectPath = \Drupal::urlGenerator()->getPathFromRoute('entity.registration.register');
     $response = new RedirectResponse(base_path() . $redirectPath);
     $response->send();
 }
@@ -93,6 +93,7 @@ function registration_theme($existing, $type, $theme, $path) {
                 'user_register_form' => 'Register Form',
                 'login_form' => 'Login Form',
                 'event_registration_form' => 'Event Registration Form',
+                'user_id' => 'User ID',
             ],
         ],
     ];

@@ -1,9 +1,9 @@
-<p><strong>You need to be logged in to access that page.</strong></p>
-<p class="">From here, you can:</p>
-<ul class="">
-    <li><a href="#create-account">Create a new account</a>, or</li>
-    <li><a href="#login">Login to an existing account</a>, or</li>
-    <li>Go to the <a href="/">Home page</a>.</li>
+{% if user_id == 0 %}
+
+<p><strong>To register for Big Day Boston 2023, you must:</strong></p>
+<ul>
+    <li><a href="#create-account">Create an account</a>, or</li>
+    <li><a href="#login">Login to an existing account</a> below:</li>
 </ul>
 
 <h2 id="login">Login:</h2>
@@ -15,3 +15,8 @@
 <p><strong>If you don't have an account yet, you can create one here.</strong></p>
 <p>An account allows you to register for Events like Big Day Boston, upload photos, and other things.</p>
 <p>{{ user_register_form }}</p>
+
+{% else %}
+    <p><strong>You're ready to register!</strong><br>Use the form below to register for an Event.</p>
+    <p>{{ event_registration_form }}</p>
+{% endif %}
