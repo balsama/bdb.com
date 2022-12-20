@@ -18,11 +18,11 @@ settings:
   display_default: false
   uri_scheme: s3
   default_image:
-    uuid: ''
+    uuid: 20feaf52-c881-495a-9abc-75e652048adf
     alt: ''
     title: ''
-    width: null
-    height: null
+    width: 800
+    height: 800
 module: image
 locked: false
 cardinality: 1

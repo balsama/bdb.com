@@ -32,9 +32,9 @@ settings:
   title_field: false
   title_field_required: false
   default_image:
-    uuid: ''
+    uuid: 20feaf52-c881-495a-9abc-75e652048adf
     alt: ''
     title: ''
-    width: null
-    height: null
+    width: 800
+    height: 800
 field_type: image
