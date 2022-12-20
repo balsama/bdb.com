@@ -1,0 +1,25 @@
+uuid: ca9872d9-fa14-4854-9924-003d2516e5d2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  author: 'Adam Balsam'
+  canonical_url: '[current-page:url]'
+  description: 'The friendly Downtown Boston Birding Competition.'
+  generator: 'Drupal 10'
+  geo_placename: 'Boston, MA'
+  geo_position: '42.3601, -71.0589'
+  geo_region: US-MA
+  icbm: '42.3601, -71.0589'
+  title: '[current-page:title] | [site:name]'
+  twitter_cards_description: 'Big Day Boston downtown birding competition'
+  twitter_cards_image: 'https://bigdayboston.com/themes/icons/logo-circle--medium--white-bg.png'
+  twitter_cards_image_alt: 'Big Day Boston downtown birding competition'
+  twitter_cards_page_url: '[current-page:url]'
+  twitter_cards_site: '@bigdayboston'
+  twitter_cards_title: '[current-page:title]'
+  twitter_cards_type: summary

@@ -1,0 +1,10 @@
+uuid: b7d68117-08d9-486f-8954-2f6cec6be11a
+langcode: en
+status: true
+dependencies: {  }
+id: node__article
+label: 'Content: Article'
+tags:
+  twitter_cards_description: '[node:body]'
+  twitter_cards_image: '[node:field_image:large:url]'
+  twitter_cards_type: summary_large_image

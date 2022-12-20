@@ -1,0 +1,10 @@
+uuid: 3519d6f9-27e3-4e55-95c5-ed54a913fea8
+langcode: en
+status: true
+dependencies:
+  module:
+    - event
+id: event.token
+label: Token
+targetEntityType: event
+cache: true
