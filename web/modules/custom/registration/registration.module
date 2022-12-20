@@ -18,6 +18,7 @@ function registration_form_alter(&$form, FormStateInterface $form_state, $form_i
                 $form['actions'][$action]['#submit'][] = 'registration_form_submit';
             }
         }
+        $form['actions']['submit']['#value'] = 'Register';
     }
 
     if ($form_id === 'user_form') {
