@@ -1,0 +1,22 @@
+uuid: 45528149-9a90-4098-958e-3278edab0be0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bdb
+_core:
+  default_config_hash: O_XKLdU5673ZbyXqqyP19lV7l3-Nw0gKbGhTEPEXTew
+id: bdb_breadcrumbs
+theme: bdb
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

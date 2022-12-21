@@ -63,4 +63,5 @@ module:
 theme:
   olivero: 0
   claro: 0
+  bdb: 0
 profile: minimal

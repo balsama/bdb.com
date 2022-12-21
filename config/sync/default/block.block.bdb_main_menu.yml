@@ -1,0 +1,27 @@
+uuid: 63f85d36-f505-4e99-ad0f-10847b2a8b91
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - bdb
+_core:
+  default_config_hash: VBm9PPzV7Lr2H39X3qVwriAS_LkRsdQPSF5OOXVm0mk
+id: bdb_main_menu
+theme: bdb
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: true
+visibility: {  }

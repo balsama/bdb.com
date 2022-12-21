@@ -1,0 +1,22 @@
+uuid: 3b403570-c62e-4a04-be18-5ed0d9a405c8
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bdb
+_core:
+  default_config_hash: POl6c7t_92aXK-V951mebTOlTCm1iDrGjN81zuHsPck
+id: bdb_content
+theme: bdb
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

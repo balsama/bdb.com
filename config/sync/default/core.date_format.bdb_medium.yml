@@ -1,0 +1,13 @@
+uuid: d749179c-8758-42f8-9e58-8c35885bae7a
+langcode: en
+status: true
+dependencies:
+  enforced:
+    theme:
+      - bdb
+_core:
+  default_config_hash: CeqwStASzOPKb2GioPhVOKXB8yqibvcyDBhnP3mXO-Y
+id: bdb_medium
+label: 'Big Day Boston Medium'
+locked: false
+pattern: 'j  F,  Y'

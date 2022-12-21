@@ -1,0 +1,22 @@
+uuid: 9f797861-9502-438c-a357-4a6ac3d331b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bdb
+_core:
+  default_config_hash: 4wG_L6KvBxNwv7rj1v2xOcQlL9JyiIV6IW6YkfVF73c
+id: bdb_messages
+theme: bdb
+region: highlighted
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }
