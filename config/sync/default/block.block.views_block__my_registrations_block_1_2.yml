@@ -10,6 +10,7 @@ dependencies:
     - views
   theme:
     - olivero
+    - bdb
 id: views_block__my_registrations_block_1_2
 theme: olivero
 region: content

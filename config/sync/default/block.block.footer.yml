@@ -9,7 +9,7 @@ dependencies:
   theme:
     - olivero
 id: footer
-theme: olivero
+theme: bdb
 region: footer_top
 weight: -9
 provider: null
