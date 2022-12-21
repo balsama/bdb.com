@@ -1,0 +1,25 @@
+uuid: ae1bcf75-10cc-4096-8497-b88649ccb3c4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bdb
+_core:
+  default_config_hash: 4Qqf4K5PGYNsRkuJ0wLf-ftqIAj-gkgvOmW7y1PJbh0
+id: bdb_site_branding
+theme: bdb
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: c455ad4e-86aa-4878-8a40-6f2a99149294
+langcode: en
+status: true
+dependencies:
+  theme:
+    - bdb
+_core:
+  default_config_hash: S62jn0fv7YHRdrgIf-yk4-yn_wOJkrnORF8e9b5MQjs
+id: bdb_primary_admin_actions
+theme: bdb
+region: highlighted
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

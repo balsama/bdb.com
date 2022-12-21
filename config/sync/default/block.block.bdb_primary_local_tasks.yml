@@ -1,0 +1,22 @@
+uuid: 1e7be51a-e865-4fcb-9d15-a6816f63b463
+langcode: en
+status: true
+dependencies:
+  theme:
+    - bdb
+_core:
+  default_config_hash: SDEGWdbhKYpu9M1s003CiRI9iV0MTI2zi9RACjkxj8w
+id: bdb_primary_local_tasks
+theme: bdb
+region: highlighted
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

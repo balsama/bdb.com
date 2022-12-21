@@ -1,0 +1,358 @@
+diff --git a/core/misc/cspell/dictionary.txt b/core/misc/cspell/dictionary.txt
+index 1f08323bf9a17d11c6d0fddac5b4d182b2ec0252..015c1db1548907b03e0e2d10f7984bb709c279dd 100644
+--- a/core/misc/cspell/dictionary.txt
++++ b/core/misc/cspell/dictionary.txt
+@@ -1141,6 +1141,7 @@ sttid
+ stuffit
+ styleguide
+ stylelint
++stylelintrc
+ stylescombo
+ subarrays
+ subchild
+diff --git a/core/tests/Drupal/Tests/Core/Command/GenerateThemeTest.php b/core/tests/Drupal/Tests/Core/Command/GenerateThemeTest.php
+index 5aa980067dacc41499528d81219074a739408f7b..d65c6457e75af433fc1c8996dd912d0a0a7a650b 100644
+--- a/core/tests/Drupal/Tests/Core/Command/GenerateThemeTest.php
++++ b/core/tests/Drupal/Tests/Core/Command/GenerateThemeTest.php
+@@ -349,12 +349,12 @@ public function testStarterKitFlag(): void {
+       '--name="Test custom starterkit theme"',
+       '--description="Custom theme generated from a starterkit theme"',
+       '--starterkit',
+-      'olivero',
++      'stark',
+     ];
+     $process = new Process($install_command, NULL);
+     $process->setTimeout(60);
+     $result = $process->run();
+-    $this->assertStringContainsString('Theme source theme olivero is not a valid starter kit.', trim($process->getErrorOutput()));
++    $this->assertStringContainsString('Theme source theme stark is not a valid starter kit.', trim($process->getErrorOutput()));
+     $this->assertSame(1, $result);
+   }
+ 
+diff --git a/core/themes/olivero/olivero.info.yml b/core/themes/olivero/olivero.info.yml
+index df8c97ca404ffb92a7f95f606a2b6904dd2c353a..2271096ed70a9846fd7f310f48e1db7e85bf0fd8 100644
+--- a/core/themes/olivero/olivero.info.yml
++++ b/core/themes/olivero/olivero.info.yml
+@@ -13,6 +13,7 @@
+ name: Olivero
+ type: theme
+ base theme: false
++starterkit: true
+ description: 'A clean, accessible, and flexible Drupal front-end theme.'
+ alt text: 'Screenshot of Olivero, Drupal front-end theme.'
+ package: Core
+diff --git a/core/themes/olivero/src/StarterKit.php b/core/themes/olivero/src/StarterKit.php
+new file mode 100644
+index 0000000000000000000000000000000000000000..624661294cd7e2c9de8e78f9484b089888692a50
+--- /dev/null
++++ b/core/themes/olivero/src/StarterKit.php
+@@ -0,0 +1,241 @@
++<?php
++
++namespace Drupal\olivero;
++
++use Drupal\Component\Serialization\Yaml;
++use Drupal\Core\Theme\StarterKitInterface;
++use Symfony\Component\Filesystem\Filesystem;
++use Symfony\Component\Finder\Finder;
++
++final class StarterKit implements StarterKitInterface {
++
++  /**
++   * List of classes defined in Olivero.
++   *   Used to differentiate capitalized machine name from theme name used in comments and string content.
++   *
++   * @var array
++   */
++  private static $classes = [
++    'StarterKit',
++    'OliveroPreRender',
++  ];
++
++  /**
++   * List of files & directories that shouldn't be copied over.
++   *
++   * @var array
++   */
++  private static $deletable = [
++    '/tests',
++    '/src/StarterKit.php',
++    '/olivero.post_update.php',
++    '/README.md',
++  ];
++
++  /**
++   * Array of scripts to keep from core package.json.
++   *
++   * @var array
++   */
++  private static $scripts_to_keep = [
++    'build:css',
++    'watch:css',
++  ];
++
++  /**
++   * Array of dependencies as pattern strings to keep from package.json.
++   *
++   * @var array
++   */
++  private static $deps_to_keep = [
++    "/^chokidar$/",
++    "/^glob$/",
++    "/^minimist$/",
++    "/^postcss.*/",
++    "/^prettier$/",
++    "/^stylelint.*/",
++  ];
++
++  /**
++   * Array of files to avoid renaming.
++   *
++   * @var array files
++   */
++  private static $skipFileRename = [];
++
++  /**
++   * Array of files to avoid editing.
++   *
++   * @var array files
++   */
++  private static $skipFileContentEdit = [
++    'starterkit.md',
++  ];
++
++  /**
++   * Finds and replaces string/regex matches in file names and contents.
++   *
++   * @param string $dir
++   *   The working directory of the template being generated.
++   * @param string $find
++   *   The string to be removed.
++   * @param string $replace
++   *   The string to be added.
++   * @param bool $skip_filters
++   *   If `true`, do not filter results based on $skipFileRename or $skipFileContentEdit arrays.
++   */
++  private static function findAndReplace($dir, $find, $replace, $skip_filters = FALSE): void {
++    $fs = new Filesystem();
++
++    // Edit file names.
++    $finder = new Finder();
++    $finder->files()
++      ->in($dir)
++      ->name("/$find/")
++      ->filter(function (\SplFileInfo $file) use ($dir, $skip_filters) {
++        if (!$skip_filters) {
++          $relative_path = str_replace($dir . '/', '', $file->getPathname());
++          return !in_array($relative_path, self::$skipFileRename);
++        }
++        else {
++          return TRUE;
++        }
++      });
++    foreach ($finder as $file) {
++      $filepath_segments = explode('/', $file->getRealPath());
++      $filename = array_pop($filepath_segments);
++      $filename = str_replace($find, $replace, $filename);
++      $filepath_segments[] = $filename;
++      $fs->rename($file->getRealPath(), implode('/', $filepath_segments));
++    }
++
++    // Edit file contents.
++    $finder = new Finder();
++    $finder->files()
++      ->in($dir)
++      ->contains($find)
++      ->filter(function (\SplFileInfo $file) use ($dir, $skip_filters) {
++        if (!$skip_filters) {
++          $relative_path = str_replace($dir . '/', '', $file->getPathname());
++          return !in_array($relative_path, self::$skipFileContentEdit);
++        }
++        else {
++          return TRUE;
++        }
++      });
++    foreach ($finder as $file) {
++      $contents = file_get_contents($file->getRealPath());
++      $contents = str_replace($find, $replace, $contents);
++      file_put_contents($file->getRealPath(), $contents);
++    }
++  }
++
++  /**
++   * Updates values in the new theme's .info.yml file.
++   *
++   * @param string $working_dir
++   *   The working directory of the template being generated.
++   * @param string $machine_name
++   *   The theme's machine name.
++   * @param string $theme_name
++   *   The theme's name.
++   */
++  private static function updateThemeInfo(string $working_dir, string $machine_name, string $theme_name): void {
++    // Edit the info file for new theme
++    $info_file = "$working_dir/$machine_name.info.yml";
++    $info = Yaml::decode(file_get_contents($info_file));
++    unset($info['starterkit']);
++    unset($info['package']);
++    $info['version'] = '1.0.0';
++    file_put_contents($info_file, Yaml::encode($info));
++  }
++
++  /**
++   * Removes $deletable files & directories from the working directory prior to copying into final destination.
++   *
++   * @param string $working_dir
++   *   The working directory of the template being generated.
++   */
++  private static function removeDeletableFiles(string $working_dir): void {
++    $fs = new Filesystem();
++
++    foreach (self::$deletable as $item) {
++      $fs->remove($working_dir . $item);
++    }
++  }
++
++  /**
++   * Copies bundler files from core.
++   *
++   * @param string $dir
++   *   The working directory of the template being generated.
++   * @param string $theme_name
++   *   The theme's name.
++   */
++  private static function getBuildFiles($dir, $theme_name): void {
++    // Copy & simplify package.json.
++    $finder = new Finder();
++    $finder->in(__DIR__ . '/../../../')->depth('== 0')->files()->name('package.json');
++    if (count($finder) === 1) {
++      foreach ($finder as $file) {
++        $package_json = json_decode($file->getContents());
++
++        $package_json->name = $theme_name;
++        unset($package_json->description);
++
++        foreach ($package_json->scripts as $key => $value) {
++          if (!in_array($key, self::$scripts_to_keep)) {
++            unset($package_json->scripts->$key);
++          }
++        }
++
++        foreach ($package_json->devDependencies as $dep => $version) {
++          $keep = FALSE;
++          foreach (self::$deps_to_keep as $dep_pattern) {
++            if (preg_match($dep_pattern, $dep)) {
++              $keep = TRUE;
++            }
++          }
++          if (!$keep) {
++            unset($package_json->devDependencies->$dep);
++          }
++        }
++
++        file_put_contents($dir . '/package.json', str_replace('    ', '  ', json_encode($package_json, JSON_PRETTY_PRINT)));
++      }
++    }
++
++    $fs = new Filesystem();
++
++    // Copy core/scripts/css
++    $fs->mirror(__DIR__ . '/../../../scripts/css', $dir . '/scripts/css');
++
++    // Copy .stylelintrc.json
++    $fs->copy(__DIR__ . '/../../../.stylelintrc.json', $dir . '/.stylelintrc.json');
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function postProcess(string $working_dir, string $machine_name, string $theme_name): void {
++
++    self::updateThemeInfo($working_dir, $machine_name, $theme_name);
++
++    self::removeDeletableFiles($working_dir);
++
++    // Replace "Olivero" in class names before doing bulk find/replace.
++    $old_pattern = 'Olivero';
++    $new_pattern = str_replace(' ', '', ucwords(str_replace('_', ' ', $machine_name)));
++    foreach (self::$classes as $old_class) {
++      $new_class = str_replace($old_pattern, $new_pattern, $old_class);
++      self::findAndReplace($working_dir, $old_class, $new_class);
++    }
++
++    self::findAndReplace($working_dir, 'olivero', $machine_name);
++    self::findAndReplace($working_dir, 'Olivero', $theme_name);
++    self::findAndReplace($working_dir, 'starterkit.md', 'README.md', TRUE);
++
++    self::getBuildFiles($working_dir, $theme_name);
++  }
++
++}
+diff --git a/core/themes/olivero/starterkit.md b/core/themes/olivero/starterkit.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..1807b25d8e54c5c763e0d97f60254a252b96b884
+--- /dev/null
++++ b/core/themes/olivero/starterkit.md
+@@ -0,0 +1,62 @@
++# Olivero Starterkit Theme
++
++## How to use the Olivero Starterkit
++
++To generate a new theme from Olivero using the starterkit/theme-generation
++script, run the following from Drupal's installation root:
++
++```sh
++php core/scripts/drupal generate-theme new_theme_name --starterkit olivero
++```
++
++Additionally, you can create the theme's human-readable name and it description
++with two optional arguments:
++
++```sh
++php core/scripts/drupal generate-theme new_theme_name
++  --starterkit olivero
++  --name "New Theme Name"
++  --description "Custom theme generated from Drupal's Olivero theme"
++```
++
++This script will copy over all the files from the Olivero theme, and replace
++instances of Olivero's machine name and label with the strings you provide.
++
++## Customizing CSS
++
++Your new theme should look and function identically to Olivero out of the box,
++but you may wish to change the styles to suit your needs. Olivero's styles are
++written using PostCSS, which is installed and configured by Drupal core, and
++allows CSS authors to write modern CSS while still supporting browsers that have
++not fully implemented the newest methodologies.
++
++As part of the `generate-theme` command, the necessary package.json dependencies
++and scripts files are copied over for you. Simply install the dependencies and
++then run either the `build:css` command to compile the assets once or the
++`watch:css` command to re-compile the assets every time a .pcss.css file is
++changed.
++
++```js
++yarn install // install the dependencies
++
++yarn build:css // compile PostCSS once
++
++yarn watch:css // compile PostCSS per save
++```
++
++## Reporting Starterkit Bugs
++
++Should you encounter a bug while generating a new theme, please
++[create a new issue](https://www.drupal.org/node/add/project-issue/drupal), and
++be sure to select the correct version of Drupal Core, as well as "Olivero theme"
++as the component.
++
++## Additional Information
++
++**Starterkit is for generating new themes** that include
++reasonably un-opinionated templates and styles that eliminate much of the
++the initial work required to create a theme.
++
++Starterkit is the recommended approach for creating new themes. For more
++information, consult the
++[Starterkit documentation on Drupal.org](https://www.drupal.org/docs/core-modules-and-themes/core-themes/starterkit-theme).

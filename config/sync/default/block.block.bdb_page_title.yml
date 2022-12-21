@@ -1,0 +1,20 @@
+uuid: 1aebc593-bcca-479d-bff1-508f52492aff
+langcode: en
+status: true
+dependencies:
+  theme:
+    - bdb
+_core:
+  default_config_hash: gPt4naRPN_zJlZutw0n5bp1kcPGqXZFOkRv_2M8xCv0
+id: bdb_page_title
+theme: bdb
+region: content_above
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }
