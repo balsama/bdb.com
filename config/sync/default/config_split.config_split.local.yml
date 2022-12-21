@@ -11,5 +11,6 @@ storage: folder
 folder: ../config/sync/local
 module: {  }
 theme: {  }
-complete_list: {  }
+complete_list:
+  - system.performance
 partial_list: {  }
