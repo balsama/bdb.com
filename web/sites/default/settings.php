@@ -807,6 +807,8 @@ if (getenv('DB_HOST')) {
 
     $config['s3fs.settings']['use_customhost'] = TRUE;
     $config['s3fs.settings']['hostname'] = 'https://nyc3.digitaloceanspaces.com/';
+
+    $settings['simple_sitemap_engines.index_now.key'] = 'ed2da9c8-4e7f-4394-8079-787017fa5393';
 }
 
 if (file_exists(__DIR__ . '/settings.local.php')) {
