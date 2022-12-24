@@ -8,6 +8,7 @@ dependencies:
     - system
   theme:
     - olivero
+    - bdb
 id: footer
 theme: bdb
 region: footer_top

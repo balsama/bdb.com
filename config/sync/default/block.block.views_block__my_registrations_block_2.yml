@@ -12,7 +12,7 @@ dependencies:
     - olivero
     - bdb
 id: views_block__my_registrations_block_2
-theme: olivero
+theme: bdb
 region: content_above
 weight: -8
 provider: null

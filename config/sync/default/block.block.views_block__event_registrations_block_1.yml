@@ -11,7 +11,7 @@ dependencies:
     - olivero
     - bdb
 id: views_block__event_registrations_block_1
-theme: olivero
+theme: bdb
 region: content
 weight: -8
 provider: null
