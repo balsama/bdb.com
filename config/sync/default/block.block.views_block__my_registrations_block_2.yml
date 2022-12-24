@@ -9,7 +9,6 @@ dependencies:
     - user
     - views
   theme:
-    - olivero
     - bdb
 id: views_block__my_registrations_block_2
 theme: bdb
