@@ -7,6 +7,7 @@ dependencies:
     - contact
     - event
     - google_analytics
+    - media
     - registration
     - search
     - system
@@ -26,4 +27,5 @@ permissions:
   - 'search content'
   - 'skip comment approval'
   - 'view event'
+  - 'view media'
   - 'view registration'
