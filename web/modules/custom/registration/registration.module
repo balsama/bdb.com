@@ -3,6 +3,8 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
 use Drupal\event\Entity\Event;
+use Drupal\registration\Entity\Registration;
+use Drupal\user\Entity\User;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 function registration_form_alter(&$form, FormStateInterface $form_state, $form_id)
@@ -98,4 +100,45 @@ function registration_theme($existing, $type, $theme, $path) {
             ],
         ],
     ];
+}
+
+function registration_registration_insert(Registration $registration)
+{
+    $uid = $registration->getFields()['uid']->getValue()[0]['target_id'];
+    $user = User::load($uid);
+    $mail = $user->getEmail();
+    $username = $user->getDisplayName();
+
+    $eid = $registration->getFields()['field_event']->getValue()[0]['target_id'];
+    $event = Event::load($eid);
+    $eventName = $event->label();
+    $subject = "Registration information for $eventName";
+
+    $params = [
+        'event_name' => $eventName,
+        'mail' => $mail,
+        'username' => $username,
+    ];
+
+    $mailManager = \Drupal::service('plugin.manager.mail');
+    $mailManager->mail('registration', $subject, $mail, 'en', $params);
+}
+function registration_mail($key, &$message, $params)
+{
+    $emailBody = <<<EOT
+Congratulations %s, you have successfully registered for Big Day Boston 2023.
+
+Please check https://bigdayboston.com for the latest information as the information in this email may change between when it was sent and the event.
+
+Event Date: May 6th, 2023
+Event Time:
+* Checkin begins at 9:30am
+* Competition begins at 10am
+* Checklists submitted no later than 4pm
+* Winner announced 4:30pm
+Event Location: Birders must checkin at the beginning of the day and submit their checklist at the end of the day at Copp's Hill Terrace in the North End. 
+EOT;
+
+    $message['subject'] = t('Registration information for ' . $params['event_name']);
+    $message['body'][] = sprintf($emailBody, $params['username']);
 }
