@@ -1,0 +1,8 @@
+uuid: 09ea399a-3c89-49a8-aeb2-cc7a80f59c10
+langcode: en
+status: true
+dependencies: {  }
+id: node__page
+label: 'Content: Basic page'
+tags:
+  twitter_cards_image: '[node:field_image:large:url]'

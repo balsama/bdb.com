@@ -815,6 +815,8 @@ if (file_exists(__DIR__ . '/settings.local.php')) {
     include __DIR__ . '/settings.local.php';
     $config["config_split.config_split.local"]["status"] = TRUE;
     $config["config_split.config_split.prod"]["status"] = FALSE;
+    $config['s3fs.settings']['use_customhost'] = TRUE;
+    $config['s3fs.settings']['hostname'] = 'https://nyc3.digitaloceanspaces.com/';
 }
 if (file_exists(__DIR__ . '/settings.emptydb.php')) {
     include __DIR__ . '/settings.emptydb.php';
