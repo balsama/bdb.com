@@ -123,6 +123,7 @@ function registration_registration_insert(Registration $registration)
     $mailManager = \Drupal::service('plugin.manager.mail');
     $mailManager->mail('registration', $subject, $mail, 'en', $params);
 }
+
 function registration_mail($key, &$message, $params)
 {
     $emailBody = <<<EOT
@@ -136,9 +137,27 @@ Event Time:
 * Competition begins at 10am
 * Checklists submitted no later than 4pm
 * Winner announced 4:30pm
-Event Location: Birders must checkin at the beginning of the day and submit their checklist at the end of the day at Copp's Hill Terrace in the North End. 
+Event Location: Birders must checkin at the beginning of the day and submit their checklist at the end of the day at Copp's Hill Terrace in the North End.
 EOT;
 
     $message['subject'] = t('Registration information for ' . $params['event_name']);
     $message['body'][] = sprintf($emailBody, $params['username']);
+}
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function registration_views_data_alter(array &$data) {
+  $data['users_field_data']['registration'] = [
+    'title' => t("Users registrations"),
+    'help' => t("Link the users to their registrations"),
+    'relationship' => [
+      'group' => t('Registrations'),
+      'label' => t("User registrations"),
+      'base' => 'registration', // database table
+      'base field' => 'uid', //database field to join on
+      'relationship field' => 'uid',
+      'id' => 'standard',
+    ],
+  ];
 }
