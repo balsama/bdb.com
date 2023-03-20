@@ -306,7 +306,22 @@ display:
         type: tag
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        id:
+          id: id
+          table: registration
+          field: id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: registration
+          entity_field: id
+          plugin_id: standard
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments:
         field_event_target_id:
           id: field_event_target_id
@@ -346,7 +361,16 @@ display:
           not: false
       filters: {  }
       style:
-        type: default
+        type: grid
+        options:
+          grouping: {  }
+          columns: 2
+          automatic_width: true
+          alignment: horizontal
+          row_class_custom: ''
+          row_class_default: true
+          col_class_custom: ''
+          col_class_default: true
       row:
         type: fields
       query:

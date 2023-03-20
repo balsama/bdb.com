@@ -8,7 +8,6 @@ id: global
 label: Global
 tags:
   author: 'Adam Balsam'
-  canonical_url: '[current-page:url]'
   description: 'The friendly Downtown Boston Birding Competition.'
   generator: 'Drupal 10'
   geo_placename: 'Boston, MA'
