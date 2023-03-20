@@ -357,7 +357,22 @@ display:
         type: tag
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        id:
+          id: id
+          table: registration
+          field: id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: registration
+          entity_field: id
+          plugin_id: standard
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments: {  }
       filters: {  }
       style:
@@ -421,7 +436,20 @@ display:
           entity_field: uid
           plugin_id: standard
           required: true
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '[view:total-rows] total registrations'
+            format: admin_html
+          tokenize: false
       footer: {  }
       display_extenders: {  }
     cache_metadata:
