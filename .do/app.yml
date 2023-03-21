@@ -38,7 +38,7 @@ services:
       - key: SMTP_PASSWORD
         scope: RUN_AND_BUILD_TIME
         type: SECRET
-        value: EV[1:7gNoCLtJXkbvLviL5oi3Vndpt/OmqZoo:xd4wbC2AkgfhaGVPPrM3OEbYFsPuzyK0l1nZs0kOL+0=]
+        value: EV[1:5DZTTNVScjdpjU8luTBj4h2EBvVFawJI:U/oIYCH+5mUNqxJBuFg2+AI1j8SQxHAJhFQBH5ICbis=]
       - key: SITE_EMAIL
         scope: RUN_AND_BUILD_TIME
         value: info@bigdayboston.com
@@ -100,7 +100,7 @@ jobs:
       - key: SMTP_PASSWORD
         scope: RUN_AND_BUILD_TIME
         type: SECRET
-        value: EV[1:7gNoCLtJXkbvLviL5oi3Vndpt/OmqZoo:xd4wbC2AkgfhaGVPPrM3OEbYFsPuzyK0l1nZs0kOL+0=]
+        value: EV[1:5DZTTNVScjdpjU8luTBj4h2EBvVFawJI:U/oIYCH+5mUNqxJBuFg2+AI1j8SQxHAJhFQBH5ICbis=]
       - key: SITE_EMAIL
         scope: RUN_AND_BUILD_TIME
         value: info@bigdayboston.com
