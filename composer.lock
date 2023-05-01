@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "222e0ad3231a57970b9cc24e794ba335",
+    "content-hash": "680ed014aac62f259d1713dce93c9794",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1291,6 +1291,56 @@
                 }
             ],
             "time": "2022-02-28T11:07:21+00:00"
+        },
+        {
+            "name": "drupal/baguettebox",
+            "version": "dev-2.0.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/baguettebox.git",
+                "reference": "da6390992e84a49587f521293e0dc4b994c04d48"
+            },
+            "require": {
+                "drupal/core": "^9.0 || ^10",
+                "php": ">=7.1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.0.x": "2.0.x-dev"
+                },
+                "drupal": {
+                    "version": "2.0.x-dev",
+                    "datestamp": "1681389309",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Chi",
+                    "homepage": "https://www.drupal.org/user/556138"
+                },
+                {
+                    "name": "elber",
+                    "homepage": "https://www.drupal.org/user/3684818"
+                }
+            ],
+            "description": "A BaguetteBox image formatter.",
+            "homepage": "https://www.drupal.org/project/baguettebox",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/baguettebox",
+                "issues": "https://www.drupal.org/project/issues/baguettebox"
+            }
         },
         {
             "name": "drupal/captcha",
@@ -7506,5 +7556,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

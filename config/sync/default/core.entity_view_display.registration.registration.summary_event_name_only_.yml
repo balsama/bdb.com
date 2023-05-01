@@ -1,15 +1,16 @@
-uuid: a3ad9e15-a431-41ab-b5c5-dcd1019b0a46
+uuid: c300fb50-5d68-4468-b864-8a82c5665df6
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.registration.summary_event_name_only_
     - field.field.registration.registration.field_event
   module:
     - registration
-id: registration.registration.default
+id: registration.registration.summary_event_name_only_
 targetEntityType: registration
 bundle: registration
-mode: default
+mode: summary_event_name_only_
 content:
   field_event:
     type: entity_reference_label
@@ -19,12 +20,5 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  uid:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
-hidden: {  }
+hidden:
+  uid: true

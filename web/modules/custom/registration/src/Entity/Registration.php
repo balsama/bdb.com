@@ -72,6 +72,7 @@ class Registration extends ContentEntityBase implements RegistrationInterface
                 'type' => 'author',
                 'weight' => 0,
             ])
+            ->setDisplayConfigurable('view', true)
             ->setDisplayOptions('form', [
                 'type' => 'entity_reference_autocomplete',
                 'weight' => 5,
