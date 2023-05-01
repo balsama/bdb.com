@@ -1,0 +1,30 @@
+uuid: b0b839db-de1a-43fc-b39e-11396a3f0057
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.user_content
+  module:
+    - system
+    - views
+  theme:
+    - bdb
+id: views_block__user_content_block_1
+theme: bdb
+region: content
+weight: -7
+provider: null
+plugin: 'views_block:user_content-block_1'
+settings:
+  id: 'views_block:user_content-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/user/*'

@@ -161,3 +161,15 @@ function registration_views_data_alter(array &$data) {
     ],
   ];
 }
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function registration_entity_bundle_field_info_alter(&$fields, \Drupal\Core\Entity\EntityTypeInterface $entity_type, $bundle) {
+    if ($entity_type->id() === 'node' && $bundle === 'event_report') {
+        if (isset($fields['field_registration'])) {
+            // Use the ID as defined in the annotation of the constraint definition
+            $fields['field_registration']->addConstraint('UniqueRegistration', []);
+        }
+    }
+}

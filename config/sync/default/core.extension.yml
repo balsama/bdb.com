@@ -2,6 +2,7 @@ _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
   automated_cron: 0
+  baguettebox: 0
   bdb_content: 0
   big_pipe: 0
   block: 0
@@ -20,6 +21,7 @@ module:
   editor: 0
   event: 0
   field: 0
+  field_ui: 0
   file: 0
   filter: 0
   google_analytics: 0
