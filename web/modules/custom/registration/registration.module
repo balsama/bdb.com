@@ -3,6 +3,7 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
 use Drupal\event\Entity\Event;
+use Drupal\node\Entity\Node;
 use Drupal\registration\Entity\Registration;
 use Drupal\user\Entity\User;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -25,6 +26,17 @@ function registration_form_alter(&$form, FormStateInterface $form_state, $form_i
 
     if ($form_id === 'user_form') {
         $form['actions']['submit']['#submit'][] = 'registration_user_edit_form_submit';
+    }
+
+    if ($form_id == 'node_event_report_form') {
+        // The title for Event Reports is set in `registration_entity_presave` in this file.
+        $form['title']['widget'][0]['value']['#required'] = false;
+        $form['title']['widget'][0]['#access'] = false;
+        $form['title']['widget'][0]['value']['#value'] = 'placeholder';
+    }
+
+    if ($form_id == 'node_event_report_edit_form') {
+        $form['title']['widget'][0]['value']['#disabled'] = true;
     }
 }
 
@@ -148,18 +160,18 @@ EOT;
  * Implements hook_views_data_alter().
  */
 function registration_views_data_alter(array &$data) {
-  $data['users_field_data']['registration'] = [
-    'title' => t("Users registrations"),
-    'help' => t("Link the users to their registrations"),
-    'relationship' => [
-      'group' => t('Registrations'),
-      'label' => t("User registrations"),
-      'base' => 'registration', // database table
-      'base field' => 'uid', //database field to join on
-      'relationship field' => 'uid',
-      'id' => 'standard',
-    ],
-  ];
+    $data['users_field_data']['registration'] = [
+        'title' => t("Users registrations"),
+        'help' => t("Link the users to their registrations"),
+        'relationship' => [
+            'group' => t('Registrations'),
+            'label' => t("User registrations"),
+            'base' => 'registration', // database table
+            'base field' => 'uid', //database field to join on
+            'relationship field' => 'uid',
+            'id' => 'standard',
+        ],
+    ];
 }
 
 /**
@@ -169,6 +181,29 @@ function registration_entity_bundle_field_info_alter(&$fields, \Drupal\Core\Enti
     if ($entity_type->id() === 'node' && $bundle === 'event_report') {
         if (isset($fields['field_registration'])) {
             $fields['field_registration']->addConstraint('UniqueRegistration', []);
+        }
+    }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function registration_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+    if ($entity->getEntityTypeId() === 'node') {
+        /** @var Node $entity */
+        if ($entity->bundle() === 'event_report') {
+            $registration_id = $entity->get('field_registration')->getValue()[0]['target_id'];
+            $registration = Registration::load($registration_id);
+
+            $event_id = $registration->get('field_event')->getValue()[0]['target_id'];
+            $event = Event::load($event_id);
+            $event_name = $event->label();
+
+            $user = Drupal::currentUser();
+            $user_name = $user->getDisplayName();
+
+            $title = $user_name . ' | ' . $event_name . ' report';
+            $entity->setTitle($title);
         }
     }
 }

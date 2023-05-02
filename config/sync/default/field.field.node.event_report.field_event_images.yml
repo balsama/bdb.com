@@ -11,7 +11,7 @@ id: node.event_report.field_event_images
 field_name: field_event_images
 entity_type: node
 bundle: event_report
-label: 'Event images'
+label: 'Event gallery images'
 description: 'Upload some images from the event here. They will be displayed as a gallery at the bottom of your Event Report and may be used elsewhere on the site.'
 required: false
 translatable: false

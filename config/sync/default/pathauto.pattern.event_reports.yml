@@ -1,0 +1,22 @@
+uuid: aca29a8f-fb05-41f8-9c25-bb196bcbec7b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: event_reports
+label: 'Event reports'
+type: 'canonical_entities:node'
+pattern: '/event-reports/[node:field_registration:entity:field_event]/[current-user:display-name]'
+selection_criteria:
+  a563a128-b015-46b9-a135-e825c6bc0ac5:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: a563a128-b015-46b9-a135-e825c6bc0ac5
+    context_mapping:
+      node: node
+    bundles:
+      event_report: event_report
+selection_logic: and
+weight: -5
+relationships: {  }
