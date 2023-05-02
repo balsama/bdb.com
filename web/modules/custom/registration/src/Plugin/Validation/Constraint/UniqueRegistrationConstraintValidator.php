@@ -42,11 +42,13 @@ class UniqueRegistrationConstraintValidator extends ConstraintValidator
         $result = $query->execute();
 
         if ($result) {
-            $node_id = \Drupal::routeMatch()->getParameter('node')->id();
-
-            if (in_array($node_id, $result)) {
-                // The user is editing the same node that is listed as belonging to them.
-                return;
+            $node = \Drupal::routeMatch()->getParameter('node');
+            if ($node) {
+                $node_id = \Drupal::routeMatch()->getParameter('node')->id();
+                if (in_array($node_id, $result)) {
+                    // The user is editing the same node that is listed as belonging to them.
+                    return;
+                }
             }
 
             $this->context->addViolation(

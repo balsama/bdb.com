@@ -12,7 +12,7 @@ third_party_settings:
 name: 'Event report'
 type: event_report
 description: 'A summary of an Event including photos - usually from the perspective of an Event participant. Event reports are visible only to the user who submitted the report until it is approved and published by an administrator.'
-help: 'Use this form to record a summary of an Event in which you participated, e.g. Big Day Boston 2023.'
+help: 'Use this form to record a summary of an Event in which you participated, e.g. Big Day Boston 2023. Event reports are visible only to the user who submitted the report until it is approved and published by an administrator.'
 new_revision: false
 preview_mode: 1
 display_submitted: true
