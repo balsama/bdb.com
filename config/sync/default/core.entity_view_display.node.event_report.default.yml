@@ -1,0 +1,72 @@
+uuid: 3de3cea5-5afa-4aeb-9b57-a8c324af0efb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event_report.body
+    - field.field.node.event_report.field_event_images
+    - field.field.node.event_report.field_registration
+    - image.style.medium_square
+    - node.type.event_report
+  module:
+    - baguettebox
+    - text
+    - user
+id: node.event_report.default
+targetEntityType: node
+bundle: event_report
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_event_images:
+    type: baguettebox
+    label: hidden
+    settings:
+      image_style: medium_square
+      baguette_image_style: wide
+      baguette_image_style_responsive:
+        -
+          width: null
+          image_style: ''
+        -
+          width: null
+          image_style: ''
+        -
+          width: null
+          image_style: ''
+        -
+          width: null
+          image_style: ''
+        -
+          width: null
+          image_style: ''
+      animation: slideIn
+      captions_source: image_alt
+      buttons: true
+      fullscreen: false
+      hide_scrollbars: true
+      inline: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_registration:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: summary_event_name_only_
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

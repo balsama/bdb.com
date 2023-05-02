@@ -1,16 +1,14 @@
-uuid: b05da118-e35d-468d-baa2-22547365d3e6
+uuid: 50c805f3-8e93-45d2-8615-31b32ab198db
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.user_picture
-    - image.style.thumbnail
+    - field.storage.registration.field_event
   module:
-    - image
     - registration
     - user
-id: event_registrations
-label: 'Event Registrations'
+id: event_registrations_reference
+label: 'Event Registrations Reference'
 module: views
 description: ''
 tag: ''
@@ -23,7 +21,6 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Event Registrations'
       fields:
         id:
           id: id
@@ -36,7 +33,7 @@ display:
           entity_field: id
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -68,7 +65,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -78,9 +75,7 @@ display:
           hide_alter_empty: true
           click_sort_column: value
           type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -91,150 +86,19 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        user_picture:
-          id: user_picture
-          table: user__user_picture
-          field: user_picture
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_link: ''
-            image_style: thumbnail
-            image_loading:
-              attribute: lazy
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        name:
-          id: name
-          table: users_field_data
-          field: name
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          entity_type: user
-          entity_field: name
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: user_name
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
+        field_event:
+          id: field_event
+          table: registration__field_event
+          field: field_event
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: custom
+          plugin_id: field
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: "<div class=\"node__meta\">\r\n    <div class=\"node__author-image\">\r\n        <div class=\"contextual-region\">\r\n            <div class=\"field field--name-user-picture field--type-image field--label-hidden field__item\">\r\n                    {{ user_picture }}\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <span>\r\n        <span>\r\n            {{ name }}\r\n        </span>\r\n    </span>\r\n</div>"
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -270,7 +134,21 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: mini
         options:
@@ -279,8 +157,8 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: 'more ›'
-            previous: ‹
+            next: ››
+            previous: ‹‹
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -306,31 +184,18 @@ display:
         type: tag
         options: {  }
       empty: {  }
-      sorts:
-        id:
-          id: id
-          table: registration
-          field: id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: registration
-          entity_field: id
-          plugin_id: standard
-          order: DESC
-          expose:
-            label: ''
-            field_identifier: ''
-          exposed: false
+      sorts: {  }
       arguments:
-        field_event_target_id:
-          id: field_event_target_id
-          table: registration__field_event
-          field: field_event_target_id
-          relationship: none
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: uid
           group_type: group
           admin_label: ''
-          plugin_id: numeric
+          entity_type: user
+          entity_field: uid
+          plugin_id: user_uid
           default_action: default
           exception:
             value: all
@@ -338,10 +203,8 @@ display:
             title: All
           title_enable: false
           title: ''
-          default_argument_type: raw
-          default_argument_options:
-            index: 1
-            use_alias: false
+          default_argument_type: current_user
+          default_argument_options: {  }
           default_argument_skip_url: false
           summary_options:
             base_path: ''
@@ -361,18 +224,19 @@ display:
           not: false
       filters: {  }
       style:
-        type: grid
+        type: default
         options:
           grouping: {  }
-          columns: 2
-          automatic_width: true
-          alignment: horizontal
-          row_class_custom: ''
-          row_class_default: true
-          col_class_custom: ''
-          col_class_default: true
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
       row:
         type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       query:
         type: views_query
         options:
@@ -388,23 +252,12 @@ display:
           field: uid
           relationship: none
           group_type: group
-          admin_label: 'User (Registrant relationship)'
+          admin_label: User
           entity_type: registration
           entity_field: uid
           plugin_id: standard
           required: true
-      use_ajax: true
-      header:
-        result:
-          id: result
-          table: views
-          field: result
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: result
-          empty: false
-          content: '@total users are registered for this Event.'
+      header: {  }
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -414,14 +267,20 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
       tags:
-        - 'config:field.storage.user.user_picture'
-  block_1:
-    id: block_1
-    display_title: Block
-    display_plugin: block
+        - 'config:field.storage.registration.field_event'
+  entity_reference_1:
+    id: entity_reference_1
+    display_title: 'Entity Reference'
+    display_plugin: entity_reference
     position: 1
     display_options:
+      style:
+        type: entity_reference
+        options:
+          search_fields:
+            id: id
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -429,6 +288,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
+        - user
       tags:
-        - 'config:field.storage.user.user_picture'
+        - 'config:field.storage.registration.field_event'

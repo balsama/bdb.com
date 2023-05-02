@@ -1,0 +1,18 @@
+uuid: 9bedf46d-bc0a-4d35-b85c-5af3779c0287
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Event report'
+type: event_report
+description: 'A summary of an Event including photos - usually from the perspective of an Event participant. Event reports are visible only to the user who submitted the report until it is approved and published by an administrator.'
+help: 'Use this form to record a summary of an Event in which you participated, e.g. Big Day Boston 2023.'
+new_revision: false
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,34 @@
+uuid: d2262100-3886-4bff-8cef-b41ad0114b6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.event_report.body
+    - field.field.node.event_report.field_event_images
+    - field.field.node.event_report.field_registration
+    - node.type.event_report
+  module:
+    - text
+    - user
+id: node.event_report.teaser
+targetEntityType: node
+bundle: event_report
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_event_images: true
+  field_registration: true

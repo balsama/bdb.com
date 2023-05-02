@@ -2,11 +2,16 @@ uuid: 6a3abc0d-8abc-404d-8d13-4c20a266fdaa
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.full_html
+    - node.type.event_report
   module:
     - comment
     - contact
     - event
+    - filter
     - google_analytics
+    - node
     - registration
     - search
     - system
@@ -20,10 +25,14 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'create event_report content'
   - 'create registration'
+  - 'edit own event_report content'
   - 'opt-in or out of google analytics tracking'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
+  - 'use text format full_html'
   - 'view event'
+  - 'view own unpublished content'
   - 'view registration'

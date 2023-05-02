@@ -1,0 +1,20 @@
+uuid: c6859931-f412-4313-9474-fd3e03da119e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - registration
+id: node.field_registration
+field_name: field_registration
+entity_type: node
+type: entity_reference
+settings:
+  target_type: registration
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

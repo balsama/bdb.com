@@ -1,0 +1,25 @@
+uuid: be3ef0ef-1602-4749-9f67-85c36d1ac022
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration
+    - node.type.event_report
+id: node.event_report.field_registration
+field_name: field_registration
+entity_type: node
+bundle: event_report
+label: 'Associated Event'
+description: "Select the Event that this report is for. If you don't see any Events in the list, you might not have registered for any events, or perhaps you already created Reports for all the Events you attended."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: event_registrations_reference
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference
