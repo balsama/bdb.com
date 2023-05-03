@@ -20,4 +20,5 @@ class UniqueEventConstraint extends Constraint
 You must be logged in to register for an Event.<br>
 <a href="/user/login">Log in</a> or <a href="/user/register">Create an Account</a>.
 EOF;
+    public $registrationClosed = 'We\'re sorry, but registration for %eventname is now closed.';
 }
