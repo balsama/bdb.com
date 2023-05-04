@@ -19,7 +19,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: "This user's content"
+      title: 'My Reports'
       fields:
         title:
           id: title
@@ -186,7 +186,20 @@ display:
       cache:
         type: tag
         options: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: '<a href="/node/add/event_report">Add an Event Report »</a>'
+            format: admin_html
+          tokenize: false
       sorts:
         created:
           id: created
