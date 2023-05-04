@@ -9,6 +9,10 @@ use Symfony\Component\Validator\ConstraintValidator;
 
 class UniqueEventConstraintValidator extends ConstraintValidator
 {
+    private const CLOSED_EVENTS = [
+        //'Big Day Boston 2023'
+    ];
+
     /**
      * @inheritDoc
      */
@@ -31,6 +35,18 @@ class UniqueEventConstraintValidator extends ConstraintValidator
             }
         }
 
+        $event = Event::load($submitted_eid);
+        $eventname = $event->get('label')->getValue()[0]['value'];
+
+        if (in_array($eventname, self::CLOSED_EVENTS)) {
+            $this->context->addViolation(
+                $constraint->registrationClosed,
+                [
+                    '%eventname' => $eventname
+                ]
+            );
+        }
+
         if ($submitted_uid === 0) {
             $this->context->addViolation(
                 $constraint->notAuthenticated,
@@ -44,7 +60,6 @@ class UniqueEventConstraintValidator extends ConstraintValidator
         $result = $query->execute();
         if ($result) {
             $username = User::load($submitted_uid)->getDisplayName();
-            $eventname = Event::load($submitted_eid)->get('label')->getValue()[0]['value'];
             $this->context->addViolation(
                 $constraint->notUnique,
                 [
