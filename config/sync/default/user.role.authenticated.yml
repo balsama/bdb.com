@@ -9,6 +9,7 @@ dependencies:
     - comment
     - contact
     - event
+    - file
     - filter
     - google_analytics
     - node
@@ -27,6 +28,7 @@ permissions:
   - 'access site-wide contact form'
   - 'create event_report content'
   - 'create registration'
+  - 'delete own files'
   - 'edit own event_report content'
   - 'opt-in or out of google analytics tracking'
   - 'post comments'
