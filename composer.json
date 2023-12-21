@@ -31,7 +31,7 @@
         "drupal/s3fs": "^3.0",
         "drupal/simple_sitemap": "^4.1",
         "drupal/smtp": "^1.2",
-        "drush/drush": "^11.3",
+        "drush/drush": "^12",
         "squizlabs/php_codesniffer": "^3.7"
     },
     "conflict": {
