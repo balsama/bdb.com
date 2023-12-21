@@ -151,6 +151,11 @@ Event Time:
 * Checklists submitted no later than 4pm
 * Winner announced 4:30pm
 Event Location: Birders must checkin at the beginning of the day and submit their checklist at the end of the day at Copp's Hill Terrace in the North End.
+
+Send questions to info@bigdayboston.com
+
+Sincerely,
+The Big Day Boston Team
 EOT;
 
     $message['subject'] = t('Registration information for ' . $params['event_name']);
