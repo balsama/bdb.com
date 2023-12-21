@@ -31,7 +31,7 @@
         "drupal/s3fs": "^3.0",
         "drupal/simple_sitemap": "^4.1",
         "drupal/smtp": "^1.2",
-        "drush/drush": "^11.3",
+        "drush/drush": "^12",
         "squizlabs/php_codesniffer": "^3.7"
     },
     "conflict": {
@@ -87,6 +87,9 @@
         "patches": {
             "drupal/key": {
                 "3278542 - Update $logger definition to be compatible with Drupal 10": "https://git.drupalcode.org/project/key/-/commit/2c580e6.diff"
+            },
+            "drupal/google_analytics": {
+                "3373921 - Cannot install from existing config": "https://git.drupalcode.org/project/google_analytics/-/merge_requests/33.diff"
             }
         }
     },

@@ -6,5 +6,6 @@ dependencies:
     - registration
 id: registration.summary_event_name_only_
 label: 'Summary (Event name only)'
+description: ''
 targetEntityType: registration
 cache: true

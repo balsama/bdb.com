@@ -6,5 +6,6 @@ dependencies:
     - event
 id: event.token
 label: Token
+description: ''
 targetEntityType: event
 cache: true
