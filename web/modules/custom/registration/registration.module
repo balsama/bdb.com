@@ -2,6 +2,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\event\Entity\Event;
 use Drupal\node\Entity\Node;
 use Drupal\registration\Entity\Registration;
@@ -38,6 +39,13 @@ function registration_form_alter(&$form, FormStateInterface $form_state, $form_i
     if ($form_id == 'node_event_report_edit_form') {
         $form['title']['widget'][0]['value']['#disabled'] = true;
         $form['revision_information']['#access'] = false;
+    }
+
+    if ($form_id == 'user_login_form') {
+        $helpText = new TranslatableMarkup(
+            'Enter the password that accompanies your username. <a href="' . base_path() . 'user/password">Forgot password.</a>'
+        );
+        $form['pass']['#description'] = $helpText;
     }
 }
 
