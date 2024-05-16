@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.article.body
+    - field.field.node.article.field_event_images
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.thumbnail
@@ -31,11 +32,11 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_image:
+  field_event_images:
     type: image_image
     weight: 4
     region: content
@@ -43,9 +44,17 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
+  field_image:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
   field_tags:
     type: entity_reference_autocomplete_tags
-    weight: 3
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -55,37 +64,37 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 10
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   simple_sitemap_index_now:
-    weight: 130
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 11
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 9
     region: content
     settings:
       display_label: true

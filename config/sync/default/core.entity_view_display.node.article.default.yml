@@ -4,11 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.article.body
+    - field.field.node.article.field_event_images
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
+    - image.style.medium_square
     - image.style.wide
     - node.type.article
   module:
+    - baguettebox
     - image
     - text
     - user
@@ -25,6 +28,37 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_event_images:
+    type: baguettebox
+    label: above
+    settings:
+      image_style: medium_square
+      baguette_image_style: wide
+      baguette_image_style_responsive:
+        -
+          width: null
+          image_style: ''
+        -
+          width: null
+          image_style: ''
+        -
+          width: null
+          image_style: ''
+        -
+          width: null
+          image_style: ''
+        -
+          width: null
+          image_style: ''
+      animation: slideIn
+      captions_source: image_alt
+      buttons: true
+      fullscreen: false
+      hide_scrollbars: true
+      inline: true
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_image:
     type: image

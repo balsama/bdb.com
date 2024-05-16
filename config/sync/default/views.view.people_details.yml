@@ -895,13 +895,20 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: 'Big Day Boston 2023'
+                title: 'BDB 2023'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '1'
               2:
+                title: 'BDB 2024'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '2'
+              3:
                 title: None
                 operator: empty
                 value:
@@ -981,7 +988,7 @@ display:
           default: mail
           info:
             name:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1021,7 +1028,7 @@ display:
               empty_column: false
               responsive: ''
             mail:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1632,9 +1639,26 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+      sorts:
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          entity_field: name
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       defaults:
         show_admin_links: false
         fields: false
+        sorts: false
       show_admin_links: false
       display_extenders: {  }
       path: admin/people/details/usernames

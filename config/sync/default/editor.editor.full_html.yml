@@ -24,6 +24,7 @@ settings:
       - link
       - '|'
       - drupalInsertImage
+      - insertTable
   plugins:
     ckeditor5_heading:
       enabled_headings:
