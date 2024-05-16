@@ -26,7 +26,7 @@
         "drupal/pathauto": "^1.11",
         "drupal/readonly_field_widget": "^1.5",
         "drupal/recaptcha": "^3.1",
-        "drupal/recaptcha_v3": "^1.7",
+        "drupal/recaptcha_v3": "^2",
         "drupal/redirect": "^1.8",
         "drupal/s3fs": "^3.0",
         "drupal/simple_sitemap": "^4.1",

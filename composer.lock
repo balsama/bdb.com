@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f00e99f8764b2ddeabdf21a4716ea05",
+    "content-hash": "62ba1f49c8d6c32fddac786b93559fb1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1402,17 +1402,17 @@
         },
         {
             "name": "drupal/captcha",
-            "version": "1.14.0",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/captcha.git",
-                "reference": "8.x-1.14"
+                "reference": "2.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/captcha-8.x-1.14.zip",
-                "reference": "8.x-1.14",
-                "shasum": "299be76b4a309b4758f538788ca134ddbcd30307"
+                "url": "https://ftp.drupal.org/files/projects/captcha-2.0.5.zip",
+                "reference": "2.0.5",
+                "shasum": "0c39d27a99b53f6517ef25ceef1ac5e333964547"
             },
             "require": {
                 "drupal/core": ">=9.4 <11"
@@ -1420,8 +1420,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.14",
-                    "datestamp": "1691598620",
+                    "version": "2.0.5",
+                    "datestamp": "1691598525",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2574,28 +2574,28 @@
         },
         {
             "name": "drupal/recaptcha_v3",
-            "version": "1.9.0",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/recaptcha_v3.git",
-                "reference": "8.x-1.9"
+                "reference": "2.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/recaptcha_v3-8.x-1.9.zip",
-                "reference": "8.x-1.9",
-                "shasum": "c27f5704701d8723b10bb6897f020e5301601a1c"
+                "url": "https://ftp.drupal.org/files/projects/recaptcha_v3-2.0.2.zip",
+                "reference": "2.0.2",
+                "shasum": "239e04bdb74179997e422c13cd76cfaac68bdf00"
             },
             "require": {
-                "drupal/captcha": "^1.11",
-                "drupal/core": "^9.1 || ^10",
-                "google/recaptcha": "^1.2"
+                "drupal/captcha": "^2.0",
+                "drupal/core": "^9.5 || ^10",
+                "google/recaptcha": "^1.3"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.9",
-                    "datestamp": "1692338119",
+                    "version": "2.0.2",
+                    "datestamp": "1692590086",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
