@@ -1,5 +1,6 @@
 _core:
   default_config_hash: jv0PKCJEOq2bOwY9RspuPZCf67ifVJ4tfTk-BfZMw8k
+langcode: en
 site_key: 6Ld9L4MjAAAAAD1ewV_LD9o0tb-L7o3jVcWA-UkO
 secret_key: null
 verify_hostname: true

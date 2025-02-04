@@ -12,7 +12,6 @@ tags:
   twitter_cards_creator: '@bigdayboston'
   twitter_cards_description: '[node:summary]'
   twitter_cards_image: '[node:field_image:large:url]'
-  twitter_cards_page_url: '[current-page:url]'
   twitter_cards_site: '@bigdayboston'
   twitter_cards_title: '[current-page:title]'
   twitter_cards_type: summary_large_image

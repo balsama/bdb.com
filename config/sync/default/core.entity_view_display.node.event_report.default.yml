@@ -52,6 +52,7 @@ content:
       fullscreen: false
       hide_scrollbars: true
       inline: true
+      selector: .baguettebox
     third_party_settings: {  }
     weight: 3
     region: content
