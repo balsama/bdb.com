@@ -1,5 +1,6 @@
 _core:
   default_config_hash: HENvUIeX6xNPGRB1w3z6rT9a71LM_hKXATF6XrM9WvM
+langcode: en
 smtp_on: true
 smtp_host: smtp.gmail.com
 smtp_hostbackup: ''
@@ -13,9 +14,10 @@ smtp_from: info@bigdayboston.com
 smtp_fromname: 'Big Day Boston'
 smtp_client_hostname: ''
 smtp_client_helo: ''
-smtp_allowhtml: '1'
+smtp_allowhtml: true
 smtp_test_address: balsam.adam@gmail.com
 smtp_reroute_address: ''
 smtp_debugging: false
+smtp_debug_level: 1
 prev_mail_system: php_mail
 smtp_keepalive: false

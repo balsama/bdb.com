@@ -8,6 +8,5 @@ tags:
   twitter_cards_creator: '@bigdayboston'
   twitter_cards_description: '[node:summary]'
   twitter_cards_image: 'https://bdbassets.nyc3.digitaloceanspaces.com/styles/wide/s3/group-photo.jpg?itok=UnWTMjEO'
-  twitter_cards_page_url: '[current-page:url]'
   twitter_cards_title: '[node:title]'
   twitter_cards_type: summary_large_image

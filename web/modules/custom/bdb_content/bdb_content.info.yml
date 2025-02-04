@@ -5,4 +5,4 @@ type: module
 dependencies:
   - event:event
   - registration:registration
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
