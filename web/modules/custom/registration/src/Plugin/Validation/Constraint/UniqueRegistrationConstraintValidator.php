@@ -41,6 +41,11 @@ class UniqueRegistrationConstraintValidator extends ConstraintValidator
             ->condition('field_registration', $submitted_rid);
         $result = $query->execute();
 
+        if ($current_user_uid === "1") {
+            // Alow admin to edit anything.
+            return;
+        }
+
         if ($result) {
             $node = \Drupal::routeMatch()->getParameter('node');
             if ($node) {
