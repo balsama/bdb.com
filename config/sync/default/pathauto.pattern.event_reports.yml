@@ -7,12 +7,12 @@ dependencies:
 id: event_reports
 label: 'Event reports'
 type: 'canonical_entities:node'
-pattern: '/event-reports/[node:field_registration:entity:field_event]/[current-user:display-name]'
+pattern: '/event-reports/[node:field_registration:entity:field_event]/[node:author:display-name]'
 selection_criteria:
-  a563a128-b015-46b9-a135-e825c6bc0ac5:
+  976ffce6-6490-4e42-9dd2-8a4796aa5d05:
     id: 'entity_bundle:node'
     negate: false
-    uuid: a563a128-b015-46b9-a135-e825c6bc0ac5
+    uuid: 976ffce6-6490-4e42-9dd2-8a4796aa5d05
     context_mapping:
       node: node
     bundles:

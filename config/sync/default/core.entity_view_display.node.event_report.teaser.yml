@@ -7,8 +7,10 @@ dependencies:
     - field.field.node.event_report.body
     - field.field.node.event_report.field_event_images
     - field.field.node.event_report.field_registration
+    - image.style.thumbnail
     - node.type.event_report
   module:
+    - image
     - text
     - user
 id: node.event_report.teaser
@@ -22,13 +24,23 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
-    weight: 101
+    weight: 1
+    region: content
+  field_event_images:
+    type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: thumbnail
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
-  field_event_images: true
   field_registration: true
