@@ -213,8 +213,9 @@ function registration_entity_presave(Drupal\Core\Entity\EntityInterface $entity)
             $event = Event::load($event_id);
             $event_name = $event->label();
 
-            $user = Drupal::currentUser();
-            $user_name = $user->getDisplayName();
+
+            $author = $entity->getOwner();
+            $user_name = $author->getAccountName();
 
             $title = $user_name . ' | ' . $event_name . ' report';
             $entity->setTitle($title);
