@@ -102,10 +102,9 @@
             "composer run-script post-deploy"
         ],
         "post-deploy": [
+            "./vendor/bin/drush updatedb --yes",
             "./vendor/bin/drush cache:rebuild",
             "./vendor/bin/drush config:import --yes",
-            "./vendor/bin/drush cache:rebuild",
-            "./vendor/bin/drush updatedb --yes",
             "./vendor/bin/drush cache:rebuild",
             "./vendor/bin/drush cron"
         ],
