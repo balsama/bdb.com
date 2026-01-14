@@ -11,7 +11,8 @@ class UniqueEventConstraintValidator extends ConstraintValidator
 {
     private const CLOSED_EVENTS = [
         'Big Day Boston 2023',
-        'Big Day Boston 2024'
+        'Big Day Boston 2024',
+        'Big Day Boston 2025',
     ];
 
     /**
