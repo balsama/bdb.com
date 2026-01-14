@@ -148,13 +148,13 @@ function registration_registration_insert(Registration $registration)
 function registration_mail($key, &$message, $params)
 {
     $emailBody = <<<EOT
-Congratulations %s, you have successfully registered for Big Day Boston 2025.
+Congratulations %s, you have successfully registered for Big Day Boston 2026.
 
 Please check https://bigdayboston.com for the latest information as the information in this email may change between when it was sent and the event.
 
-Event Date: May 3rd, 2025
+Event Date: May 2nd, 2026
 Event Time:
-* Checkin begins at 9:30am
+* Checkin begins at 9:00am
 * Competition begins at 10am
 * Checklists submitted no later than 4pm
 * Winner announced 4:30pm
