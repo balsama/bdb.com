@@ -898,6 +898,20 @@ display:
                   max: ''
                   value: '2'
               3:
+                title: 'BDB 2025'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '3'
+              4:
+                title: 'BDB 2026'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '4'
+              5:
                 title: None
                 operator: empty
                 value:
@@ -1093,7 +1107,9 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      title: 'People Emails'
       defaults:
+        title: false
         show_admin_links: false
       show_admin_links: false
       display_extenders: {  }
@@ -1129,6 +1145,7 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      title: 'People usernames'
       fields:
         name:
           id: name
@@ -1642,6 +1659,7 @@ display:
             field_identifier: ''
           exposed: false
       defaults:
+        title: false
         show_admin_links: false
         fields: false
         sorts: false
