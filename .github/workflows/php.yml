@@ -5,6 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -12,19 +13,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+
+    # Keep in sync with config.platform.php in composer.json (matches production).
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.4'
+        tools: composer:v2
 
     - name: Validate composer.json and composer.lock
       run: composer validate --no-check-all --strict
 
-    - name: Cache Composer packages
+    - name: Get Composer cache directory
       id: composer-cache
-      uses: actions/cache@v3
+      run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
+
+    - name: Cache Composer downloads
+      uses: actions/cache@v4
       with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
-          ${{ runner.os }}-php-
+          ${{ runner.os }}-composer-
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
@@ -35,5 +46,9 @@ jobs:
     - name: Install from config
       run: composer run-script quickstart
 
+    # Disabled: the fixture is a Drupal 9 database, and Drupal 11 can only update
+    # from 10.3 or later. Re-enable once the fixture is replaced with a fresh
+    # sanitized snapshot of production.
     - name: Upgrade test
+      if: false
       run: composer run-script upgrade-test
